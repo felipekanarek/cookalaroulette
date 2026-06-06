@@ -98,7 +98,7 @@ de fontes (FR-009). Frontend-only + metadados do repo; scraper/dados intocados.
 
 - [X] T013 Validação final pelo `quickstart.md`: auditoria AA sem violações (SC-001), 0 rolagem horizontal 320–1920 (SC-002), reduced-motion sem giro (SC-003), contraste das fontes (SC-004), preview OG (SC-005), metadados do repo (SC-006).
 - [X] T014 [P] Atualizar README/constituição se algo mudou de comportamento (ex.: roleta de fontes); marcar a Fase 4 como concluída onde fizer sentido.
-- [ ] T015 **Merge** da branch `004-refinamento` em `main` e `git push` — o GitHub Pages republica automaticamente o site refinado.
+- [X] T015 **Merge** da branch `004-refinamento` em `main` e `git push` — o GitHub Pages republica automaticamente o site refinado.
 
 ---
 
