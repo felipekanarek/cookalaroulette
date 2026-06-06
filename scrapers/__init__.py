@@ -1,4 +1,4 @@
-"""Pacote de adaptadores de scraping do Cook a la Roulette (Fase 2).
+"""Pacote de adaptadores de scraping do Cook à la Roulette (Fase 2).
 
 Cada módulo `scrapers/<site>.py` implementa o contrato de adaptador
 (ver specs/002-scraper-receitas/contracts/adapter-contract.md):

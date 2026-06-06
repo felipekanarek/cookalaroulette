@@ -1,4 +1,4 @@
-# Cook a la Roulette 🟠🎰
+# Cook à la Roulette 🟠🎰
 
 > O universo decide o que você vai cozinhar hoje.
 
@@ -6,7 +6,7 @@ Um web app de página única que **sorteia uma receita aleatória** de um Chef c
 **redireciona** para o site original. Sem login, sem fricção, sem conteúdo hospedado — a
 aleatoriedade é o produto.
 
-A tela é tipográfica e clicável: o nome **COOK A LA ROULETTE** em laranja sobre off-white,
+A tela é tipográfica e clicável: o nome **COOK À LA ROULETTE** em laranja sobre off-white,
 com uma **fonte do Google Fonts sorteada a cada visita**. Clicou → uma breve animação →
 abre uma receita real, de um Chef de algum canto do mundo.
 
@@ -66,7 +66,7 @@ scrapers/  base.py + um arquivo por Chef        ← coleta (ver scrapers/README.
 orquestrador.py · requirements.txt              ← orquestra a coleta
 tests/                                          ← testes
 specs/  001-… 002-… 003-…                       ← Spec Kit (spec/plan/tasks por fase)
-.specify/memory/constitution.md                 ← princípios do projeto (v2.0.0)
+.specify/memory/constitution.md                 ← princípios do projeto (v2.0.1)
 BRIEFING.md                                      ← briefing original
 ```
 
@@ -83,8 +83,8 @@ BRIEFING.md                                      ← briefing original
 
 - **Fase 1 — Fundação** ✅ frontend + sorteio + dados manuais
 - **Fase 2 — Scraper** ✅ infraestrutura + primeiros adaptadores
-- **Fase 3 — Cobertura** ✅ dezenas de Chefs de 25+ países (em andamento/ampliável)
-- **Fase 4 — Refinamento** ⏳ design final, responsividade, deploy público
+- **Fase 3 — Cobertura** ✅ ~30 Chefs de 25+ países (5 técnicas de coleta)
+- **Fase 4 — Refinamento** ✅ acessibilidade WCAG AA, responsivo, roleta de fontes, OG/social, LICENSE, **deploy no ar**
 
 Princípios em [`.specify/memory/constitution.md`](.specify/memory/constitution.md).
 Cada fase tem spec/plan/tasks em [`specs/`](specs/).

@@ -5,7 +5,7 @@ Version change: 1.0.0 → 2.0.0
 Bump rationale: MAJOR — redefinição da regra concreta do Princípio I (Minimalismo
   Radical). O design pivotou de "uma imagem + um botão" para uma única tela
   tipográfica em que a página inteira é o gatilho do sorteio (texto-marca
-  "COOK A LA ROULETTE"). Remover a exigência de imagem e mudar a superfície de ação
+  "COOK À LA ROULETTE"). Remover a exigência de imagem e mudar a superfície de ação
   é uma redefinição incompatível com a regra anterior → MAJOR. O intento do princípio
   (minimalismo radical, uma única ação) permanece intacto.
 
@@ -39,7 +39,7 @@ Follow-up TODOs:
 ### I. Minimalismo Radical (UX)
 
 A interface MUST consistir de uma única tela em que a **página inteira é o gatilho do
-sorteio**, exibindo apenas o nome **COOK A LA ROULETTE** em tipografia grande — nada
+sorteio**, exibindo apenas o nome **COOK À LA ROULETTE** em tipografia grande — nada
 mais. É PROIBIDO adicionar à tela: filtros (culinária, tempo, dificuldade), lista de
 Chefs, histórico de receitas, login, perfil, configuração, ou qualquer elemento
 permanente além do texto-marca (mensagens transitórias de estado, como "carregando" ou
@@ -181,4 +181,5 @@ Toda revisão de plano e implementação MUST verificar conformidade com os prin
 Qualquer violação justificada (complexidade adicional, exceção temporária) MUST ser
 explicitamente registrada e fundamentada no artefato correspondente.
 
-**Version**: 2.0.0 | **Ratified**: 2026-06-05 | **Last Amended**: 2026-06-05
+**Version**: 2.0.1 | **Ratified**: 2026-06-05 | **Last Amended**: 2026-06-05
+<!-- 2.0.1 (PATCH): correção de grafia da marca — "COOK À LA ROULETTE" (à, do francês "à la"). Sem mudança de regra. -->

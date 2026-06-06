@@ -1,9 +1,9 @@
 /*
- * app.js — camada de UI do Cook a la Roulette.
+ * app.js — camada de UI do Cook à la Roulette.
  *
- * A tela inteira (um <button> em tela cheia) é o gatilho do sorteio. A cada visita,
- * uma fonte é escolhida aleatoriamente do Google Fonts. No clique: animação breve
- * (não-interativa) seguida do redirecionamento para a receita original.
+ * A tela inteira (um <button>) é o gatilho do sorteio. A cada visita, uma fonte é escolhida
+ * aleatoriamente do Google Fonts. No clique: "roleta de fontes" (a tipografia troca de fonte
+ * rápido por ~0,8s) e então redireciona para a receita original. Respeita prefers-reduced-motion.
  * A lógica de sorteio vive em sorteio.js (pura e testável).
  */
 
@@ -11,7 +11,8 @@
   'use strict';
 
   const FONTE_DADOS = 'data/receitas.json';
-  const DURACAO_ANIMACAO = 800; // ms (~0,8s) — FR-005
+  const DURACAO_GIRO = 800;   // ms (~0,8s) — FR-009
+  const INTERVALO_GIRO = 80;  // ms entre trocas de fonte durante o giro
 
   const roleta = document.getElementById('roleta');
   const status = document.getElementById('status');
@@ -22,53 +23,55 @@
   const MSG_VAZIO = 'Nenhuma receita disponível no momento.';
   const MSG_FALHA = 'Não foi possível carregar as receitas agora. Tente novamente mais tarde.';
 
-  // --- Fonte aleatória do Google Fonts a cada visita ---------------------------------
-  // Famílias variadas (display/serif/script) que ficam fortes em tamanho grande.
+  // Pool CURADO de fontes do Google Fonts (T002): display, legíveis em tamanho grande e que
+  // cabem em telas estreitas. Removidas as problemáticas (pixel/sombra/mono muito largas:
+  // Press Start 2P, Bungee Shade, Rubik Mono One, Monoton).
   const FONTES = [
     'Anton', 'Bebas Neue', 'Archivo Black', 'Oswald', 'Playfair Display', 'Abril Fatface',
-    'Lobster', 'Pacifico', 'Monoton', 'Bungee', 'Staatliches', 'Righteous', 'Bowlby One',
-    'Titan One', 'Rubik Mono One', 'Passion One', 'Fjalla One', 'Alfa Slab One', 'Teko',
-    'Black Ops One', 'Bungee Shade', 'Press Start 2P'
+    'Lobster', 'Pacifico', 'Staatliches', 'Righteous', 'Bowlby One', 'Titan One',
+    'Passion One', 'Fjalla One', 'Alfa Slab One', 'Teko', 'Black Ops One', 'Bungee'
   ];
+  // Subconjunto pré-carregado para o giro (evita flicker de fallback durante a roleta).
+  const FONTES_GIRO = ['Anton', 'Bebas Neue', 'Archivo Black', 'Oswald', 'Abril Fatface',
+                       'Staatliches', 'Righteous', 'Alfa Slab One'];
 
-  function aplicarFonteAleatoria() {
-    const nome = FONTES[Math.floor(Math.random() * FONTES.length)];
+  function carregarFonte(nome) {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = 'https://fonts.googleapis.com/css2?family=' +
-      nome.replace(/ /g, '+') + '&display=swap';
+    link.href = 'https://fonts.googleapis.com/css2?family=' + nome.replace(/ /g, '+') + '&display=swap';
     document.head.appendChild(link);
+  }
+
+  function aplicarFonte(nome) {
     document.documentElement.style.setProperty('--fonte', '"' + nome + '", Georgia, serif');
-    return nome;
+  }
+
+  function aleatoria() {
+    return FONTES[Math.floor(Math.random() * FONTES.length)];
   }
 
   const prefereMenosMovimento =
-    window.matchMedia &&
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Nova aba (preserva a roleta); fallback para a mesma aba se o popup for bloqueado.
-  // Não usar 'noopener' nas features: faz window.open retornar null mesmo no sucesso,
-  // o que abriria o link nas DUAS abas. Desanexamos o opener manualmente.
+  // Nova aba (preserva a roleta); fallback mesma aba. Não usar 'noopener' nas features
+  // (faz window.open retornar null mesmo no sucesso → abriria nas duas abas).
   function redirecionar(url) {
     const nova = window.open(url, '_blank');
-    if (nova) {
-      nova.opener = null;
-    } else {
-      window.location.assign(url);
-    }
+    if (nova) { nova.opener = null; } else { window.location.assign(url); }
   }
 
-  function desabilitar(msg) {
-    roleta.disabled = true;
-    if (msg) status.textContent = msg;
-  }
+  function desabilitar(msg) { roleta.disabled = true; if (msg) status.textContent = msg; }
+  function habilitar() { roleta.disabled = false; status.textContent = ''; }
 
-  function habilitar() {
+  function finalizar(receita) {
+    aplicarFonte(aleatoria());            // assenta numa fonte final
+    roleta.removeAttribute('aria-busy');
+    girando = false;
     roleta.disabled = false;
-    status.textContent = '';
+    redirecionar(receita.url);
   }
 
-  // Clique: trava → anima → sorteia → redireciona → destrava (FR-005 / FR-013).
+  // Clique: trava → roleta de fontes (~0,8s) → redireciona (FR-009/FR-013).
   function aoClicar() {
     if (girando || roleta.disabled) return;
     const receita = window.Sorteio.sortear(receitas);
@@ -78,19 +81,20 @@
     roleta.disabled = true;
     roleta.setAttribute('aria-busy', 'true');
 
-    const espera = prefereMenosMovimento ? 0 : DURACAO_ANIMACAO;
-    if (!prefereMenosMovimento) roleta.classList.add('saindo');
+    if (prefereMenosMovimento) { finalizar(receita); return; }  // sem giro
 
+    let n = 0;
+    const giro = window.setInterval(function () {
+      aplicarFonte(FONTES_GIRO[n % FONTES_GIRO.length]);
+      n++;
+    }, INTERVALO_GIRO);
     window.setTimeout(function () {
-      roleta.classList.remove('saindo');
-      roleta.removeAttribute('aria-busy');
-      girando = false;
-      roleta.disabled = false;
-      redirecionar(receita.url);
-    }, espera);
+      window.clearInterval(giro);
+      finalizar(receita);
+    }, DURACAO_GIRO);
   }
 
-  // Carrega a curadoria e define o estado (FR-002 / FR-007 / FR-008 / FR-014).
+  // Carrega a curadoria e define o estado (FR-002/FR-007/FR-008/FR-014 da Fase 1).
   function carregar() {
     desabilitar('Carregando…');
     fetch(FONTE_DADOS)
@@ -104,12 +108,17 @@
         receitas = dados;
         habilitar();
       })
-      .catch(function () {
-        desabilitar(MSG_FALHA); // FR-014: mensagem distinta da de lista vazia
-      });
+      .catch(function () { desabilitar(MSG_FALHA); });  // FR-014: distinta da de lista vazia
   }
 
-  aplicarFonteAleatoria();
+  // Fonte aleatória da visita (escolhe uma, carrega e aplica) + preload do conjunto de giro.
+  var fonteDaVisita = aleatoria();
+  carregarFonte(fonteDaVisita);
+  aplicarFonte(fonteDaVisita);
+  FONTES_GIRO.forEach(function (nome) {
+    if (nome !== fonteDaVisita) carregarFonte(nome);
+  });
+
   roleta.addEventListener('click', aoClicar);
   carregar();
 })();
