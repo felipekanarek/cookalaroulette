@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cook a la Roulette</title>
+  <meta name="description" content="O universo decide o que você vai cozinhar hoje.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <!-- a fonte é escolhida aleatoriamente do Google Fonts e injetada por app.js a cada visita -->
+</head>
+<body>
+  <button id="roleta" class="roleta" type="button"
+          aria-label="Sortear uma receita aleatória — Cook a la Roulette">
+    <span class="linha">COOK</span>
+    <span class="linha">A LA</span>
+    <span class="linha">ROULETTE</span>
+  </button>
+
+  <p id="status" class="status" role="status" aria-live="polite"></p>
+
+  <script src="sorteio.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

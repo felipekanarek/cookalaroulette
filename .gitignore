@@ -1,0 +1,17 @@
+# Ambiente Python do scraper (não faz parte do produto)
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.egg-info/
+
+# Logs / temporários
+*.log
+scraper.log
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Config local do Claude Code (mantém launch.json; ignora settings locais)
+.claude/settings.local.json

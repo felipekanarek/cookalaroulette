@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cookalaroulette.local/contracts/receitas.schema.json",
+  "title": "receitas.json — Contrato Único dos Adaptadores",
+  "description": "Array plano de registros de receita curada. Formato estável compartilhado entre o frontend (Fase 1) e os adaptadores de scraping (Fase 2+), conforme o Princípio V da constituição.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["chef", "site", "titulo", "url"],
+    "properties": {
+      "chef": {
+        "type": "string",
+        "minLength": 1,
+        "description": "Nome de quem assina a receita."
+      },
+      "site": {
+        "type": "string",
+        "minLength": 1,
+        "description": "Domínio de origem, ex.: panelinha.com.br"
+      },
+      "titulo": {
+        "type": "string",
+        "minLength": 1,
+        "description": "Título da receita."
+      },
+      "url": {
+        "type": "string",
+        "format": "uri",
+        "pattern": "^https?://",
+        "description": "URL absoluta http(s) da receita original."
+      }
+    }
+  }
+}
