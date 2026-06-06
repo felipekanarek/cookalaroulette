@@ -3,7 +3,7 @@
 **Feature Branch**: `002-scraper-receitas`
 **Created**: 2026-06-05
 **Status**: Draft
-**Input**: User description: "Fase 2 — Scraper do Cook a la Roulette: indexar automaticamente URLs de receitas dos sites dos Chefs e gerar/atualizar data/receitas.json no mesmo contrato {chef, site, titulo, url}, substituindo a curadoria manual da Fase 1. Adaptadores por Chef + orquestrador; técnicas em ordem (sitemap → BeautifulSoup → Playwright); coletar só a localização da receita, nunca o conteúdo; lidar com sites bloqueados. Experimento de aprendizado sobre ~5 sites."
+**Input**: User description: "Fase 2 — Scraper do Cook à la Roulette: indexar automaticamente URLs de receitas dos sites dos Chefs e gerar/atualizar data/receitas.json no mesmo contrato {chef, site, titulo, url}, substituindo a curadoria manual da Fase 1. Adaptadores por Chef + orquestrador; técnicas em ordem (sitemap → BeautifulSoup → Playwright); coletar só a localização da receita, nunca o conteúdo; lidar com sites bloqueados. Experimento de aprendizado sobre ~5 sites."
 
 ## Clarifications
 

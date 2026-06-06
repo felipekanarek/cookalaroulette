@@ -29,7 +29,7 @@
 > divertido. As decisões abaixo **substituem** as anteriores sobre imagem, rótulo do
 > botão e mood. Refletido na constituição v2.0.0 (Princípio I).
 
-- Q: Como fica a tela principal? → A: **Sem ilustração.** A **tela inteira é clicável** (não há mais um botão isolado), exibindo o nome **COOK A LA ROULETTE** em tipografia grande, em três linhas ocupando toda a altura. (Supera o "imagem + botão 'O que vou cozinhar?'".)
+- Q: Como fica a tela principal? → A: **Sem ilustração.** A **tela inteira é clicável** (não há mais um botão isolado), exibindo o nome **COOK À LA ROULETTE** em tipografia grande, em três linhas ocupando toda a altura. (Supera o "imagem + botão 'O que vou cozinhar?'".)
 - Q: Cores? → A: Texto em **laranja `#e85d29`** sobre fundo **off-white**. (Supera o mood "claro e arejado escandinavo" — agora o tom é divertido.)
 - Q: Tipografia? → A: A cada visita, uma **fonte é sorteada do Google Fonts** (pool de famílias display variadas), reforçando o conceito de "roleta".
 - Q: O que acontece no clique? → A: Mantém-se uma **animação breve não-interativa (~0,8s)** — agora um fade discreto da tela — seguida do redirecionamento. (FR-005/FR-013 seguem válidos.)
@@ -39,7 +39,7 @@
 ### User Story 1 - Sortear uma receita e ir cozinhar (Priority: P1)
 
 Uma pessoa sem ideia do que cozinhar abre o site, vê uma tela tipográfica com o nome
-**COOK A LA ROULETTE** em letras grandes (e uma fonte diferente a cada visita). Clica
+**COOK À LA ROULETTE** em letras grandes (e uma fonte diferente a cada visita). Clica
 em qualquer lugar da tela e é imediatamente levada a uma receita real, escolhida ao
 acaso, no site original de um Chef curado. Ela não precisa escolher nada, não cria
 conta e não configura filtros — o universo decide por ela.
@@ -56,7 +56,7 @@ cliques e verificar que receitas diferentes aparecem.
 
 1. **Given** o site aberto com a lista de receitas curadas carregada, **When** a pessoa clica em qualquer lugar da tela, **Then** uma animação breve é exibida e, ao terminar, ela é redirecionada para a URL original de uma receita de um Chef da lista — sem nenhuma etapa de confirmação no meio.
 2. **Given** a pessoa acabou de ser redirecionada para uma receita, **When** ela volta ao site e clica novamente, **Then** um novo sorteio é feito e ela pode chegar a uma receita diferente.
-3. **Given** o site aberto, **When** a página termina de carregar, **Then** a pessoa vê apenas o texto-marca COOK A LA ROULETTE — nenhum filtro, lista de chefs, campo de login ou configuração.
+3. **Given** o site aberto, **When** a página termina de carregar, **Then** a pessoa vê apenas o texto-marca COOK À LA ROULETTE — nenhum filtro, lista de chefs, campo de login ou configuração.
 
 ---
 
@@ -117,7 +117,7 @@ quebra de layout nem rolagem horizontal.
 
 ### Functional Requirements
 
-- **FR-001**: O sistema MUST apresentar uma página única em que a **tela inteira é o gatilho do sorteio**, exibindo apenas o texto-marca **COOK A LA ROULETTE** em tipografia grande (três linhas ocupando a altura), sem nenhum outro elemento permanente e sem tagline ou texto explicativo (sem filtros, lista de Chefs, histórico, login ou configuração). Mensagens transitórias de estado (carregando/erro) são permitidas.
+- **FR-001**: O sistema MUST apresentar uma página única em que a **tela inteira é o gatilho do sorteio**, exibindo apenas o texto-marca **COOK À LA ROULETTE** em tipografia grande (três linhas ocupando a altura), sem nenhum outro elemento permanente e sem tagline ou texto explicativo (sem filtros, lista de Chefs, histórico, login ou configuração). Mensagens transitórias de estado (carregando/erro) são permitidas.
 - **FR-002**: O sistema MUST carregar a curadoria de Chefs e receitas a partir de uma fonte de dados editável manualmente, em que cada receita é descrita por: nome do Chef, site de origem, título da receita e URL original.
 - **FR-003**: Ao acionar o botão, o sistema MUST selecionar uma receita ao acaso em duas etapas — primeiro sorteando um Chef entre os disponíveis, depois sorteando uma receita pertencente a esse Chef.
 - **FR-004**: O sorteio do Chef MUST ser independente da quantidade de receitas que cada Chef possui (cada Chef com ao menos uma receita tem a mesma probabilidade de ser escolhido).
@@ -147,7 +147,7 @@ quebra de layout nem rolagem horizontal.
 - **SC-002**: 100% dos sorteios levam a uma URL de receita pertencente a um Chef da curadoria (nenhum beco sem saída, nenhuma URL inválida).
 - **SC-003**: Ao longo de ≥1000 sorteios simulados, cada Chef é selecionado dentro de ±10% da frequência esperada (1 / nº de Chefs), independentemente do tamanho do seu catálogo — o tamanho do catálogo não aumenta a chance de um Chef ser escolhido.
 - **SC-004**: A pessoa percebe e usa a página sem instruções, em telas de celular e desktop, sem encontrar rolagem horizontal ou elementos cortados.
-- **SC-005**: A página principal não apresenta nenhum elemento além do texto-marca COOK A LA ROULETTE (verificável por inspeção visual direta).
+- **SC-005**: A página principal não apresenta nenhum elemento além do texto-marca COOK À LA ROULETTE (verificável por inspeção visual direta).
 - **SC-006**: A curadoria inicial cobre múltiplos Chefs de mais de um país, validando que a diversidade cultural da descoberta é perceptível já nesta fase.
 - **SC-007**: A pessoa consegue acionar o sorteio usando apenas o teclado (foco visível + Enter/Espaço) — verificável sem ferramentas além do navegador.
 
@@ -156,7 +156,7 @@ quebra de layout nem rolagem horizontal.
 - **Curadoria mínima da fase**: a fonte de dados é populada manualmente com pelo menos 3 Chefs de países diferentes, cada um com pelo menos 3 receitas reais, totalizando o suficiente para perceber variedade. URLs apontam para receitas reais e ativas no momento da curadoria.
 - **Destino do redirecionamento**: o redirecionamento abre a receita em uma nova aba, preservando o site da roleta na aba original para que a pessoa possa sortear de novo facilmente (apoia FR-010 e o ciclo de descoberta). Caso o navegador bloqueie a nova aba, a navegação ocorre na própria aba.
 - **Sem memória entre sorteios**: não há histórico nem prevenção de repetição imediata — coerente com o princípio de minimalismo radical e ausência de histórico.
-- **Identidade tipográfica**: não há ilustração; a identidade é o texto-marca COOK A LA ROULETTE em laranja sobre off-white, com fonte sorteada do Google Fonts a cada visita. O refinamento estético final é tratado na Fase 4.
+- **Identidade tipográfica**: não há ilustração; a identidade é o texto-marca COOK À LA ROULETTE em laranja sobre off-white, com fonte sorteada do Google Fonts a cada visita. O refinamento estético final é tratado na Fase 4.
 - **Sem coleta automatizada nesta fase**: nenhuma indexação automática (scraper) é construída agora; toda a curadoria é manual e serve para validar a experiência. O scraper é a Fase 2.
 - **Idioma da interface**: português, coerente com o público inicial do projeto.
 

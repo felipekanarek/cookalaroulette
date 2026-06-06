@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""orquestrador.py — Fase 2 do Cook a la Roulette.
+"""orquestrador.py — Fase 2 do Cook à la Roulette.
 
 Chama os adaptadores de cada site, consolida os registros no contrato
 {chef, site, titulo, url}, deduplica, descarta URLs mortas, grava data/receitas.json
@@ -156,7 +156,7 @@ def coletar_tudo(limite: int):
 
 def imprimir_relatorio(relatorio, dup_removidas, urls_mortas, total_final):
     print("\n" + "=" * 60)
-    print("RELATÓRIO DE COLETA — Cook a la Roulette (Fase 2)")
+    print("RELATÓRIO DE COLETA — Cook à la Roulette (Fase 2)")
     print("=" * 60)
     for r in relatorio:
         print(f"  {r['site']:<22} {r['coletadas']:>4} receitas  [{r['tecnica']}]  {r['status']}")

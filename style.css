@@ -1,13 +1,16 @@
 /*
- * style.css — Cook a la Roulette
- * Tipográfico e minimalista: tela inteira clicável, off-white no fundo, preto no texto.
- * A família tipográfica vem de --fonte (escolhida aleatoriamente em runtime por app.js).
+ * style.css — Cook à la Roulette
+ * Tela tipográfica clicável: laranja sobre off-white. A família vem de --fonte (sorteada em
+ * runtime por app.js). Acessível (foco visível, contraste AA-large, reduced-motion) e
+ * responsivo (320px → desktop).
  */
 
 :root {
   --fundo: #faf7f2;   /* off-white */
-  --texto: #e85d29;   /* laranja (cor enviada pelo usuário) — em texto gigante atende AA-large (>3:1) */
-  --fonte: Georgia, "Times New Roman", serif; /* fallback até a fonte aleatória carregar */
+  --texto: #e85d29;   /* laranja da marca — 3.26:1 sobre o off-white (WCAG AA p/ texto grande) */
+  --status: #555555;  /* texto pequeno — ~7:1 sobre o off-white (AA normal) */
+  --foco: #b3541e;    /* anel de foco (terracota) */
+  --fonte: Georgia, "Times New Roman", serif; /* fallback até a fonte sorteada carregar */
 }
 
 * { box-sizing: border-box; }
@@ -17,10 +20,10 @@ html, body {
   padding: 0;
   height: 100%;
   background: var(--fundo);
-  overflow: hidden;            /* sem rolagem: a tela é uma composição única */
+  overflow-x: hidden;            /* nunca rolagem horizontal (FR-003) */
 }
 
-/* O botão É a tela inteira (acessível por teclado e foco, nativo do <button>). */
+/* O botão É a tela inteira — focável e operável por teclado (nativo do <button>). */
 .roleta {
   -webkit-appearance: none;
   appearance: none;
@@ -28,6 +31,7 @@ html, body {
   margin: 0;
   padding: 4vh 4vw;
   width: 100vw;
+  max-width: 100%;
   height: 100vh;
   height: 100svh;
   background: var(--fundo);
@@ -36,48 +40,48 @@ html, body {
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;   /* as 3 linhas se distribuem por toda a altura */
+  justify-content: space-between;
   align-items: center;
 
   font-family: var(--fonte);
   text-transform: uppercase;
   line-height: 0.9;
   letter-spacing: 0.01em;
-
-  transition: opacity 0.7s ease;
 }
 
 .linha {
   display: block;
-  font-size: clamp(2.25rem, 17vw, 13rem);
+  /* clamp conservador: a palavra mais larga ("ROULETTE") cabe a 320px em qualquer fonte do pool */
+  font-size: clamp(2rem, 15vw, 12rem);
+  max-width: 100%;
   white-space: nowrap;
 }
 
-/* Foco visível por teclado (FR-015), recuado para não ser cortado na borda. */
+/* Foco visível por teclado (FR-001), recuado para não ser cortado na borda. */
 .roleta:focus-visible {
-  outline: 6px solid var(--texto);
+  outline: 6px solid var(--foco);
   outline-offset: -14px;
 }
 
 .roleta:disabled { cursor: default; }
 
-/* Animação breve e discreta no clique antes do redirecionamento (FR-005). */
-.roleta.saindo { opacity: 0.12; }
-
-/* Mensagens de estado (vazio / falha), discretas no rodapé. */
+/* Mensagens de estado (vazio / falha), discretas no rodapé, anunciadas via aria-live. */
 .status {
   position: fixed;
   left: 0;
   right: 0;
   bottom: 1rem;
   margin: 0;
+  padding: 0 1rem;
   text-align: center;
   font-family: system-ui, -apple-system, sans-serif;
   font-size: 0.95rem;
-  color: #555555;
+  color: var(--status);
   pointer-events: none;
 }
 
+/* Reduzir movimento: a "roleta de fontes" é desativada no app.js (vai direto ao redirect);
+   aqui garantimos que nenhuma transição cause desconforto. */
 @media (prefers-reduced-motion: reduce) {
-  .roleta { transition: none; }
+  * { transition: none !important; animation: none !important; }
 }
