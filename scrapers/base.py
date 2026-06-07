@@ -248,6 +248,12 @@ def coletar_por_crawl(seeds, chef, site, url_e_receita, limite, *, max_paginas=4
         try:
             html = get(pagina).text
         except BloqueioError:
+            # 429/403 no MEIO do crawl não deve descartar o que já coletamos: devolve o
+            # parcial. Só propaga (vira "bloqueado-pulado") se nada foi coletado — bloqueio
+            # real já na semente. O orquestrador trata 403/429 como URL viva, então o
+            # parcial é seguro.
+            if registros:
+                return registros
             raise
         except Exception:
             continue

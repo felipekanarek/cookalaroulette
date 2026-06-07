@@ -53,7 +53,7 @@ _TITULO_LIXO = {"skip to content", "skip to content#maincontent", ""}
 
 
 def coletar(limite: int) -> list[dict]:
-    registros = base.coletar_por_crawl(SEEDS, CHEF, SITE, _e_receita, limite)
+    registros = base.coletar_por_crawl(SEEDS, CHEF, SITE, _e_receita, limite, max_paginas=300)
     # Saneia títulos vindos de âncoras de navegação: cai para o slug humanizado.
     for r in registros:
         if r["titulo"].strip().lower() in _TITULO_LIXO:

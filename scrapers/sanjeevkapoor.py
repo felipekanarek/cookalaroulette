@@ -53,7 +53,7 @@ def _titulo(url: str) -> str:
 def coletar(limite: int) -> list[dict]:
     # coletar_por_crawl faz o BFS e respeita o limite; só refinamos o título
     # (o slug do site carrega o id numérico, que não queremos no rótulo).
-    registros = base.coletar_por_crawl(SEEDS, CHEF, SITE, _e_receita, limite)
+    registros = base.coletar_por_crawl(SEEDS, CHEF, SITE, _e_receita, limite, max_paginas=300)
     for r in registros:
         r["titulo"] = _titulo(r["url"])
     return registros

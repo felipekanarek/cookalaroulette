@@ -23,7 +23,7 @@ from urllib.parse import urlparse, urlunparse
 import requests
 
 from scrapers import (base, recipetineats, panelinha, jamieoliver, seriouseats, maangchi,
-                      patijinich, natashaskitchen, laylita, ceciliatupac, paulinacocina,
+                      natashaskitchen, laylita, ceciliatupac, paulinacocina,
                       justonecookbook, akispetretzikis, vincenzosplate, thespanishchef,
                       kwestiasmaku, donalskehan, northwildkitchen, trinehahnemann,
                       callmecupcake, kitchenbutterfly, simplydelicious, thewoksoflife,
@@ -34,7 +34,7 @@ from scrapers import (base, recipetineats, panelinha, jamieoliver, seriouseats, 
 
 # Adaptadores registrados. Adicionar um site = importar e incluir aqui (Princípio VIII).
 ADAPTADORES = [recipetineats, panelinha, jamieoliver, seriouseats, maangchi,
-               patijinich, natashaskitchen, laylita, ceciliatupac, paulinacocina,
+               natashaskitchen, laylita, ceciliatupac, paulinacocina,
                justonecookbook, akispetretzikis, vincenzosplate, thespanishchef,
                kwestiasmaku, donalskehan, northwildkitchen, trinehahnemann,
                callmecupcake, kitchenbutterfly, simplydelicious, thewoksoflife,

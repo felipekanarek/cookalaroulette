@@ -26,4 +26,6 @@ def _e_receita(url: str) -> bool:
 
 
 def coletar(limite: int) -> list[dict]:
-    return base.coletar_por_crawl(SEEDS, CHEF, SITE, _e_receita, limite)
+    # Sem sitemap: o acervo só é alcançável visitando muitas páginas (cada uma revela ~11
+    # "receitas relacionadas"). max_paginas alto destrava o catálogo — 40→203, 200→~884.
+    return base.coletar_por_crawl(SEEDS, CHEF, SITE, _e_receita, limite, max_paginas=300)

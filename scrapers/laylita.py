@@ -53,4 +53,4 @@ def _e_receita(url: str) -> bool:
 
 
 def coletar(limite: int) -> list[dict]:
-    return base.coletar_por_crawl(SEEDS, CHEF, SITE, _e_receita, limite)
+    return base.coletar_por_crawl(SEEDS, CHEF, SITE, _e_receita, limite, max_paginas=300)

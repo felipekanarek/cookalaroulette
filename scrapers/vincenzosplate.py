@@ -55,4 +55,14 @@ def _e_receita(url: str) -> bool:
 
 
 def coletar(limite: int) -> list[dict]:
-    return base.coletar_por_crawl(SEEDS, CHEF, SITE, _e_receita, limite)
+    # Crawl BFS tolerante a 429 (devolve o parcial já coletado). Sob a carga do lote o
+    # site rate-limita as páginas de receita internas; o crawl ainda entrega o que reuniu
+    # antes do bloqueio. Se vier vazio (semente bloqueada já de cara), cai para a listagem
+    # via navegador, que passa pelo rate-limit e extrai as receitas das páginas de índice.
+    try:
+        registros = base.coletar_por_crawl(SEEDS, CHEF, SITE, _e_receita, limite)
+    except base.BloqueioError:
+        registros = []
+    if registros:
+        return registros
+    return base.coletar_por_listagem(SEEDS, CHEF, SITE, _e_receita, limite, usar_browser=True)
