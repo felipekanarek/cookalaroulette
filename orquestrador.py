@@ -129,11 +129,12 @@ def gravar_atomico(caminho: str, registros) -> None:
 
 # ---- pipeline ---------------------------------------------------------------------
 
-def coletar_tudo(limite: int):
-    """Roda cada adaptador; retorna (registros_validos, relatorio_por_site)."""
+def coletar_tudo(limite: int, adaptadores=None):
+    """Roda cada adaptador; retorna (registros_validos, relatorio_por_site).
+    `adaptadores`: subconjunto a rodar (padrão: todos)."""
     registros = []
     relatorio = []
-    for ad in ADAPTADORES:
+    for ad in (adaptadores if adaptadores is not None else ADAPTADORES):
         nome = getattr(ad, "SITE", ad.__name__)
         try:
             brutos = ad.coletar(limite)
@@ -154,6 +155,27 @@ def coletar_tudo(limite: int):
     return registros, relatorio
 
 
+def _ler_existente(caminho):
+    """Lê o catálogo atual (lista de registros). Vazio se não existir/ilegível."""
+    try:
+        with open(caminho, encoding="utf-8") as f:
+            dados = json.load(f)
+        return dados if isinstance(dados, list) else []
+    except (FileNotFoundError, json.JSONDecodeError):
+        return []
+
+
+def _selecionar_adaptadores(nomes):
+    """Mapeia nomes de módulo (ex.: 'jamieoliver') para os módulos em ADAPTADORES.
+    Retorna (selecionados, desconhecidos, disponiveis_ordenados)."""
+    por_nome = {ad.__name__.split(".")[-1]: ad for ad in ADAPTADORES}
+    selecionados, desconhecidos = [], []
+    for n in nomes:
+        ad = por_nome.get(n)
+        (selecionados if ad else desconhecidos).append(ad if ad else n)
+    return selecionados, desconhecidos, sorted(por_nome)
+
+
 def imprimir_relatorio(relatorio, dup_removidas, urls_mortas, total_final):
     print("\n" + "=" * 60)
     print("RELATÓRIO DE COLETA — Cook à la Roulette (Fase 2)")
@@ -171,16 +193,53 @@ def main():
     ap = argparse.ArgumentParser(description="Coleta receitas e gera data/receitas.json")
     ap.add_argument("--limite", type=int, default=TETO_PADRAO,
                     help=f"teto de receitas por site (padrão {TETO_PADRAO})")
+    ap.add_argument("--site", action="append", default=None, metavar="MODULO",
+                    help="modo cirúrgico: roda só o(s) adaptador(es) nomeado(s) (nome do módulo "
+                         "em scrapers/, ex.: jamieoliver) e MESCLA no catálogo existente, "
+                         "preservando os demais chefs. Pode repetir ou separar por vírgula.")
     args = ap.parse_args()
 
-    print(f"Coletando (teto {args.limite}/site)...")
-    registros, relatorio = coletar_tudo(args.limite)
+    # nomes de --site: aceita repetição (--site a --site b) e vírgula (--site a,b)
+    nomes = [p.strip() for s in (args.site or []) for p in s.split(",") if p.strip()]
+    modo_cirurgico = bool(nomes)
 
+    if modo_cirurgico:
+        adaptadores, desconhecidos, disponiveis = _selecionar_adaptadores(nomes)
+        if desconhecidos:
+            print(f"❌ Adaptador(es) não encontrado(s): {', '.join(desconhecidos)}")
+            print(f"   Disponíveis: {', '.join(disponiveis)}")
+            return 2
+        rodados = [a.__name__.split(".")[-1] for a in adaptadores]
+        print(f"Modo cirúrgico: só [{', '.join(rodados)}] (teto {args.limite}/site); "
+              f"mesclando no catálogo existente.")
+    else:
+        adaptadores = ADAPTADORES
+        print(f"Coletando (teto {args.limite}/site)...")
+
+    registros, relatorio = coletar_tudo(args.limite, adaptadores)
     registros, dup = deduplicar(registros)          # FR-007
-    registros, mortas = verificar_urls(registros)   # FR-015
+    registros, mortas = verificar_urls(registros)   # FR-015 (só os recém-coletados)
 
-    # Salvaguarda: não sobrescrever o catálogo existente com um resultado vazio
-    # (ex.: rodada totalmente bloqueada / sem rede). Preserva o que o frontend já lê.
+    if modo_cirurgico:
+        # Mescla: preserva o catálogo e substitui só os sites rodados (por SITE).
+        existentes = _ler_existente(SAIDA)
+        sites_rodados = {a.SITE for a in adaptadores}
+        sites_com_resultado = {r["site"] for r in registros}
+        # Anti-vazio por site: um site que coletou 0 NÃO derruba o que já existia dele.
+        for s in sorted(sites_rodados - sites_com_resultado):
+            print(f"⚠️  {s} coletou 0 — mantendo as receitas anteriores desse site.")
+        a_substituir = sites_com_resultado & sites_rodados
+        preservados = [r for r in existentes if r["site"] not in a_substituir]
+        final, _ = deduplicar(preservados + registros)
+        if not final:
+            print("\n⚠️  Nada a gravar — catálogo preservado.")
+            imprimir_relatorio(relatorio, dup, mortas, total_final=0)
+            return 1
+        gravar_atomico(SAIDA, final)                # FR-012
+        imprimir_relatorio(relatorio, dup, mortas, len(final))
+        return 0
+
+    # Modo completo (tudo-ou-nada). Salvaguarda: não sobrescrever com vazio.
     if not registros:
         print("\n⚠️  Nenhuma receita coletada — preservando data/receitas.json existente "
               "(nada foi sobrescrito).")

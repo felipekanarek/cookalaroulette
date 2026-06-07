@@ -44,9 +44,15 @@ python3 -m http.server 8000      # na raiz do projeto
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 playwright install chromium       # navegador p/ sites com JS/bloqueio
-python orquestrador.py            # regrava data/receitas.json + relatório por site
+python orquestrador.py            # rodada completa: regrava data/receitas.json (foto nova)
 python orquestrador.py --limite 25
+python orquestrador.py --site jamieoliver --limite 2000   # cirúrgico: roda só 1 site e MESCLA
+python orquestrador.py --site panelinha --site laylita    # vários específicos (preserva o resto)
 ```
+
+> `--site MODULO` roda apenas o(s) adaptador(es) nomeado(s) (o nome do arquivo em `scrapers/`) e
+> **mescla** no catálogo existente — substitui as receitas daquele site e preserva todos os outros
+> chefs. Ideal para incluir/testar um site novo sem re-raspar os 30+. Sem `--site`, é tudo-ou-nada.
 
 **Testes** (sem rede):
 
