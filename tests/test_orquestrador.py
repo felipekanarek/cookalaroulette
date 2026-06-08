@@ -42,15 +42,18 @@ def main():
         check(not base.registro_valido({"chef": "X", "site": "s", "titulo": "t", "url": ""})),
     ))
 
-    teste("normalizar_url remove barra final, fragmento e baixa o host", lambda: check(
-        orq.normalizar_url("HTTPS://WWW.Site.com/Receita/Bolo/#x") == "https://www.site.com/Receita/Bolo"
+    teste("normalizar_url remove barra final, fragmento, query e baixa o host", lambda: check(
+        orq.normalizar_url("HTTPS://WWW.Site.com/Receita/Bolo/?share=facebook#x")
+            == "https://www.site.com/Receita/Bolo"
     ))
 
-    teste("deduplicar remove mesma URL normalizada", lambda: (lambda res: check(
-        len(res[0]) == 1 and res[1] == 1
+    teste("deduplicar remove mesma URL normalizada (barra/share/utm)", lambda: (lambda res: check(
+        len(res[0]) == 1 and res[1] == 3
     ))(orq.deduplicar([
         {"chef": "a", "site": "s", "titulo": "t", "url": "https://s.com/r/"},
         {"chef": "a", "site": "s", "titulo": "t", "url": "https://s.com/r"},
+        {"chef": "a", "site": "s", "titulo": "t", "url": "https://s.com/r/?share=facebook"},
+        {"chef": "a", "site": "s", "titulo": "t", "url": "https://s.com/r/?utm_source=x"},
     ])))
 
     teste("humanizar_slug deriva título do slug", lambda: check(

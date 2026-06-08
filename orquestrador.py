@@ -91,10 +91,12 @@ TETO_PADRAO = 50
 # ---- helpers puros (testados em tests/test_orquestrador.py) -----------------------
 
 def normalizar_url(url: str) -> str:
-    """Normaliza para deduplicação: esquema/host minúsculos, sem fragmento, sem barra final."""
+    """Normaliza para deduplicação: esquema/host minúsculos, sem fragmento, sem query, sem barra final.
+    Descartar a query trata botões de compartilhamento (`?share=facebook|pinterest|twitter`),
+    UTM/tracking e variantes de print/feed (`?print=1`, `?amp=1`) como a mesma receita canônica."""
     p = urlparse(url.strip())
     caminho = p.path.rstrip("/") or "/"
-    return urlunparse((p.scheme.lower(), p.netloc.lower(), caminho, "", p.query, ""))
+    return urlunparse((p.scheme.lower(), p.netloc.lower(), caminho, "", "", ""))
 
 
 def deduplicar(registros):

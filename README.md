@@ -91,6 +91,7 @@ BRIEFING.md                                      ← briefing original
 - **Fase 2 — Scraper** ✅ infraestrutura + primeiros adaptadores
 - **Fase 3 — Cobertura** ✅ ~30 Chefs de 25+ países (5 técnicas de coleta)
 - **Fase 4 — Refinamento** ✅ acessibilidade WCAG AA, responsivo, roleta de fontes, OG/social, LICENSE, **deploy no ar**
+- **Fase 5 — Expansão (Lista 2)** ✅ +51 chefs/marcas (food blogs, editoriais, coquetéis): **~91 mil receitas / 82 chefs**; modo cirúrgico `--site` no orquestrador
 
 Princípios em [`.specify/memory/constitution.md`](.specify/memory/constitution.md).
 Cada fase tem spec/plan/tasks em [`specs/`](specs/).

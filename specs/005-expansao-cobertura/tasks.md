@@ -121,17 +121,17 @@ Validação de aceite por site: `python3 -c "from scrapers import <m>; print(len
 **Goal**: catálogo final consistente + relatório honesto de cobertura.
 **Independent Test**: relatório lista cada site (ok/sem-receitas/bloqueado/morto); 0 duplicatas; Lista 1 intacta.
 
-- [ ] T068 [US3] Finalizar `cobertura.md`: para cada site da Lista 2, status final (integrado/contagem ou motivo de não-integração) — SC-005
-- [ ] T069 [US3] Verificar invariantes do catálogo: 0 duplicatas por URL normalizada (SC-004), todos os registros válidos, e os 30 chefs da Lista 1 ainda presentes (SC-003) — script de checagem ad-hoc
-- [ ] T070 [US3] Conferir métricas de sucesso: nº de sites integrados vs ~58 (SC-001 ≥80%) e nº de países novos (SC-002 ≥10); registrar no `cobertura.md`
-- [ ] T071 [US3] Conferir tamanho do `data/receitas.json` (cru + gzip); se o payload do frontend crescer demais, reduzir tetos por site e re-integrar os maiores via `--site`
+- [X] T068 [US3] Finalizar `cobertura.md`: para cada site da Lista 2, status final (integrado/contagem ou motivo de não-integração) — SC-005
+- [X] T069 [US3] Verificar invariantes do catálogo: 0 duplicatas por URL normalizada (SC-004), todos os registros válidos, e os 30 chefs da Lista 1 ainda presentes (SC-003) — script de checagem ad-hoc
+- [X] T070 [US3] Conferir métricas de sucesso: nº de sites integrados vs ~58 (SC-001 ≥80%) e nº de países novos (SC-002 ≥10); registrar no `cobertura.md`
+- [X] T071 [US3] Conferir tamanho do `data/receitas.json` (cru + gzip); se o payload do frontend crescer demais, reduzir tetos por site e re-integrar os maiores via `--site`
 
 ## Phase 6: Polish & Cross-Cutting
 
-- [ ] T072 Atualizar `README.md` (contagem de chefs/países; nota da Lista 2) e `scrapers/README.md` se existir
-- [ ] T073 Atualizar memória do projeto (cookalaroulette-status) com o resultado da Fase 5
-- [ ] T074 Commit final + push (`git add data/receitas.json scrapers/ orquestrador.py specs/005-expansao-cobertura`); GitHub Pages republica
-- [ ] T075 Merge da branch `005-expansao-cobertura` em `main`
+- [X] T072 Atualizar `README.md` (contagem de chefs/países; nota da Lista 2) e `scrapers/README.md` se existir
+- [X] T073 Atualizar memória do projeto (cookalaroulette-status) com o resultado da Fase 5
+- [X] T074 Commit final + push (`git add data/receitas.json scrapers/ orquestrador.py specs/005-expansao-cobertura`); GitHub Pages republica
+- [X] T075 Merge da branch `005-expansao-cobertura` em `main`
 
 ## Dependencies & Execution
 
