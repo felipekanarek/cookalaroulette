@@ -36,7 +36,7 @@
   tecnologia/framework). São o vocabulário próprio do problema "ser encontrado por buscadores"
   e equivalem a falar em "URL" ou "HTTPS"; aparecem como o **o quê** (artefatos a entregar),
   não o **como** (qual ferramenta usar para gerá-los).
-- Decisões-padrão estão em Assumptions (idioma, Search Console no escopo, sem analytics,
-  `.github.io` antigo via redirect). Confirmar em `/speckit-clarify` antes do `/speckit-plan`.
-- A compra do domínio é uma ação operacional do mantenedor fora do código; a spec assume que
-  estará feita antes da implementação da Fase 6.
+- Decisões clarificadas em Sessão 2026-06-08 (idioma EN, Search Console no escopo, sem
+  analytics, `.github.io` antigo via redirect). Pronta para `/speckit-plan`.
+- Compra do domínio: **feita** (cookalaroulette.com na Hostgator). DNS configurado e GitHub
+  Pages Custom Domain ativo com HTTPS — Pilar 1 da fase já está no ar.

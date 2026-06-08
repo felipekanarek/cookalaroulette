@@ -5,6 +5,15 @@
 **Status**: Draft
 **Input**: User description: "Fase 6 — publicar o Cook à la Roulette em `cookalaroulette.com` (GitHub Pages + HTTPS) e prepará-lo para ser encontrado no Google, sem ferir o Minimalismo Radical da tela."
 
+## Clarifications
+
+### Session 2026-06-08
+
+- Q: Idioma principal das metas SEO (`<title>`, `<meta description>`, JSON-LD)? → A: **EN principal**. O catálogo é majoritariamente em inglês e o alcance internacional é maior. O atributo `lang="pt-BR"` da página permanece (afeta acessibilidade/leitura, não SEO). Sem `hreflang` por ora.
+- Q: Cadastro no Google Search Console entra no escopo? → A: **Sim**. Verificação via meta tag `google-site-verification` no `<head>` + submissão do `sitemap.xml`.
+- Q: Algum analytics nesta fase? → A: **Não, zero tracking**. Mantém o produto sem rastreamento (zero cookies/pixel), coerente com Zero Fricção e privacidade. Se houver desejo futuro, será fase própria com ferramenta privacy-friendly.
+- Q: O que fazer com o subdomínio `.github.io` antigo? → A: **Manter com redirect 301 automático** para `cookalaroulette.com` (comportamento padrão do GitHub após Custom Domain). Canonical concentra autoridade SEO no domínio novo sem quebrar links antigos.
+
 ## User Scenarios & Testing *(mandatory)*
 
 ### User Story 1 - Site no domínio próprio com HTTPS (Priority: P1)
@@ -116,8 +125,11 @@ adicionado.
   `cookalaroulette.com` (criado pelo GitHub ao configurar Custom domain; preservado nos commits).
 - **FR-005**: A homepage MUST declarar uma URL canônica via `<link rel="canonical">` apontando
   para `https://cookalaroulette.com/`.
-- **FR-006**: A homepage MUST conter um `<title>` e uma `<meta name="description">` orientados
-  para as queries-alvo (nome da marca + intenção: "sorteador de receitas", "o que cozinhar hoje").
+- **FR-006**: A homepage MUST conter um `<title>` e uma `<meta name="description">` em **inglês**
+  (idioma principal de SEO), orientados para as queries-alvo: nome da marca ("Cook à la Roulette"),
+  intenção ("random recipe roulette", "what should I cook", "recipe randomizer"), e termos
+  secundários em pt-BR ("sorteador de receitas", "o que cozinhar hoje") quando couber sem
+  prejudicar a clareza em inglês. O atributo `lang="pt-BR"` da página permanece.
 - **FR-007**: A homepage MUST conter um bloco `<script type="application/ld+json">` com
   Schema.org tipo `WebSite`, declarando nome, descrição, URL e idioma do produto.
 - **FR-008**: As metas Open Graph e Twitter Cards (já existentes na Fase 4) MUST ser atualizadas
@@ -179,9 +191,10 @@ Decisões-padrão tomadas na ausência de definição explícita (a confirmar em
 - **Apex × www**: o apex `cookalaroulette.com` é a forma canônica; `www.cookalaroulette.com`
   redireciona para o apex (configurado no provedor de DNS conforme suporte; tipicamente CNAME
   do www → `felipekanarek.github.io` + GitHub Pages decide o redirect).
-- **Idioma principal de SEO**: pt-BR (consistente com `lang="pt-BR"` atual e com o foco
-  brasileiro do projeto); títulos/descriptions em português, com menção secundária ao termo
-  "random recipe roulette" para captura de queries em inglês — sem `hreflang` separado por ora.
+- **Idioma principal de SEO** (clarificado): **EN** — `<title>`, `<meta description>` e JSON-LD
+  em inglês para mirar alcance internacional, com termos pt-BR secundários quando couberem. O
+  atributo `lang="pt-BR"` da página permanece (não muda — afeta acessibilidade/leitura, não a
+  intenção de SEO). Sem `hreflang` separado por ora.
 - **Search Console**: dentro do escopo desta fase. Verificação via meta tag
   `google-site-verification` no `<head>` (mais simples, não depende de acesso ao DNS depois) e
   submissão do `sitemap.xml`.
