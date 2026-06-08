@@ -47,13 +47,13 @@ Validação de aceite por site: `python3 -c "from scrapers import <m>; print(len
 
 ### Lote 3 — Ásia
 
-- [ ] T021 [P] [US1] `scrapers/chopstickchronicles.py` — Shihoko Ura (chopstickchronicles.com, JP)
-- [ ] T022 [P] [US1] `scrapers/koreanbapsang.py` — Hyosun (koreanbapsang.com, KR)
-- [ ] T023 [P] [US1] `scrapers/vietworldkitchen.py` — Andrea Nguyen (vietworldkitchen.com, VN)
-- [ ] T024 [P] [US1] `scrapers/madewithlau.py` — Daddy Lau (madewithlau.com, CN)
-- [ ] T025 [P] [US1] `scrapers/soupeduprecipes.py` — Mandy (soupeduprecipes.com, CN)
-- [ ] T026 [P] [US1] `scrapers/yejiskitchenstories.py` — Yeji (yejiskitchenstories.com, KR)
-- [ ] T027 [P] [US1] `scrapers/archanaskitchen.py` — Archana Doshi (archanaskitchen.com, IN)
+- [X] T021 [P] [US1] `scrapers/chopstickchronicles.py` — Shihoko Ura (chopstickchronicles.com, JP)
+- [X] T022 [P] [US1] `scrapers/koreanbapsang.py` — Hyosun (koreanbapsang.com, KR)
+- [X] T023 [P] [US1] `scrapers/vietworldkitchen.py` — Andrea Nguyen (vietworldkitchen.com, VN)
+- [X] T024 [P] [US1] `scrapers/madewithlau.py` — Daddy Lau (madewithlau.com, CN)
+- [X] T025 [P] [US1] `scrapers/soupeduprecipes.py` — Mandy (soupeduprecipes.com, CN)
+- [X] T026 [P] [US1] `scrapers/yejiskitchenstories.py` — Yeji (yejiskitchenstories.com, KR)
+- [X] T027 [P] [US1] `scrapers/archanaskitchen.py` — Archana Doshi (archanaskitchen.com, IN)
 - [ ] T028 [US1] Registrar T021–T027 em `orquestrador.py` e integrar via `--site` (limite 1000); atualizar `cobertura.md`
 
 ### Lote 4 — Europa / Oriente Médio / Oceania / África

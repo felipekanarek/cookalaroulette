@@ -35,7 +35,10 @@ from scrapers import (base, recipetineats, panelinha, jamieoliver, seriouseats, 
                       # Lista 2 — Lote 2
                       ciaosamin, sallysbaking, minimalistbaker, pinchofyum,
                       loveandlemons, downshiftology, gimmesomeoven, joythebaker,
-                      themodernproper)
+                      themodernproper,
+                      # Lista 2 — Lote 3
+                      chopstickchronicles, koreanbapsang, vietworldkitchen, madewithlau,
+                      soupeduprecipes, yejiskitchenstories, archanaskitchen)
 # Serious Eats, David Lebovitz e Hot Thai Kitchen estão atrás do Cloudflare → descobertos
 # via Internet Archive (Wayback), sem tocar no site. NÃO registrado: zoesghana (domínio morto).
 
@@ -53,7 +56,10 @@ ADAPTADORES = [recipetineats, panelinha, jamieoliver, seriouseats, maangchi,
                # Lista 2 — Lote 2
                ciaosamin, sallysbaking, minimalistbaker, pinchofyum,
                loveandlemons, downshiftology, gimmesomeoven, joythebaker,
-               themodernproper]
+               themodernproper,
+               # Lista 2 — Lote 3
+               chopstickchronicles, koreanbapsang, vietworldkitchen, madewithlau,
+               soupeduprecipes, yejiskitchenstories, archanaskitchen]
 
 RAIZ = os.path.dirname(os.path.abspath(__file__))
 SAIDA = os.path.join(RAIZ, "data", "receitas.json")
