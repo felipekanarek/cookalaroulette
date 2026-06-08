@@ -4,14 +4,14 @@ Baseline antes da Lista 2: **38.103 receitas / 31 chefs** (backup `/tmp/receitas
 
 ## Resultado final
 
-- **Catálogo:** 38.103 → **91.366 receitas / 82 chefs** (após dedup com query strings).
+- **Catálogo:** 38.103 → **93.366 receitas / 83 chefs** (após dedup com query strings e re-coleta do Epicurious).
 - **Lista 1 preservada:** ✅ 31/31 chefs.
-- **SC-001 (≥10 receitas):** ✅ 51/58 sites = **88%** (meta era ≥80%).
+- **SC-001 (≥10 receitas):** ✅ 52/58 sites = **90%** (meta era ≥80%).
 - **SC-002 (países novos ≥10):** ⚠️ apenas **6** novos (CO, CL, LB, ME, CA, MA) — meta não atingida; a Lista 2 acabou predominantemente EUA/UE.
 - **SC-003 (Lista 1 intacta):** ✅
 - **SC-004 (0 duplicatas):** ✅ após correção do `normalizar_url` (descarta query string; `?share=facebook|pinterest|twitter` etc.).
 - **SC-005 (sites não integrados documentados):** ✅ (5 fora: africanbites, kenhom, marthastewart, greatspanishchefs, greatpolishchefs — todos com motivo).
-- **Payload `receitas.json`:** 17 MB cru / **2.0 MB gzip** (servido pelo Pages).
+- **Payload `receitas.json`:** ~17 MB cru / **~2.0 MB gzip** (servido pelo Pages).
 
 ## Sites NÃO integrados (com motivo)
 
@@ -22,7 +22,6 @@ Baseline antes da Lista 2: **38.103 receitas / 31 chefs** (backup `/tmp/receitas
 | marthastewart.com | D | Cloudflare hard, wayback inviável na rodada |
 | greatspanishchefs.com | B | Só federa receitas dos sites irmãos |
 | greatpolishchefs.com | B | Só federa receitas dos sites irmãos |
-| epicurious.com | D | Coletou 0 nesta rodada (revisitar com `--site` isolado) |
 
 ## Limitação conhecida — wayback platê
 
