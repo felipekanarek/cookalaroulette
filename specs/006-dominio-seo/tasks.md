@@ -16,8 +16,8 @@ navegador/CLI). As demais são edições de arquivo.
 Estas tasks geram tokens/dados que vão ser usados depois nas tasks de código. Podem ser feitas
 em paralelo entre si (são serviços diferentes).
 
-- [ ] T001 🧑 [P] Criar conta no GoatCounter (https://www.goatcounter.com/signup) com slug **`cookalaroulette`** → painel ficará em `https://cookalaroulette.goatcounter.com`; confirmar e-mail; em Settings → Allowed hosts adicionar `cookalaroulette.com` e `localhost`
-- [ ] T002 🧑 [P] No Google Search Console (https://search.google.com/search-console): Add property → **URL prefix** → `https://cookalaroulette.com/` → escolher método **HTML tag** → **COPIAR o token** (`google-site-verification` value) — NÃO clicar em "Verify" ainda (precisa do token estar deployado primeiro)
+- [X] T001 🧑 [P] Criar conta no GoatCounter (https://www.goatcounter.com/signup) com slug **`cookalaroulette`** → painel ficará em `https://cookalaroulette.goatcounter.com`; confirmar e-mail; em Settings → Allowed hosts adicionar `cookalaroulette.com` e `localhost`
+- [X] T002 🧑 [P] No Google Search Console (https://search.google.com/search-console): Add property → **URL prefix** → `https://cookalaroulette.com/` → escolher método **HTML tag** → **COPIAR o token** (`google-site-verification` value) — NÃO clicar em "Verify" ainda (precisa do token estar deployado primeiro)
 
 ## Phase 2: Foundational
 
@@ -62,16 +62,16 @@ em paralelo entre si (são serviços diferentes).
 ### Bloco D — validações pós-deploy
 
 - [X] T018 [US2] Aguardar Pages republicar e rodar validações automáticas: `curl -s https://cookalaroulette.com | grep -E '<title>|canonical|google-site-verification|application/ld\+json|goatcounter'` (todas devem aparecer); `curl -s https://cookalaroulette.com/robots.txt` (3 linhas); `curl -s https://cookalaroulette.com/sitemap.xml` (XML válido); `curl -sI https://cookalaroulette.com/assets/og-image.png` (200)
-- [ ] T019 [US2] Validar JSON-LD em https://search.google.com/test/rich-results com URL `https://cookalaroulette.com/` — esperado: `WebSite` detectado, sem erros
-- [ ] T020 [US2] Rodar Lighthouse SEO (https://pagespeed.web.dev/?url=https%3A%2F%2Fcookalaroulette.com%2F) e verificar score SEO ≥ 90 (SC-005); registrar no commit ou em `cobertura.md` se houver desvio
-- [ ] T021 [US2] Forçar re-scrape dos previews sociais: Facebook Debugger (https://developers.facebook.com/tools/debug/?q=https%3A%2F%2Fcookalaroulette.com%2F) → "Scrape Again"; Twitter Card Validator (https://cards-dev.twitter.com/validator) — esperar imagem 1200×630 + textos EN
+- [~] T019 [US2] Validar JSON-LD em https://search.google.com/test/rich-results com URL `https://cookalaroulette.com/` — esperado: `WebSite` detectado, sem erros
+- [~] T020 [US2] Rodar Lighthouse SEO (https://pagespeed.web.dev/?url=https%3A%2F%2Fcookalaroulette.com%2F) e verificar score SEO ≥ 90 (SC-005); registrar no commit ou em `cobertura.md` se houver desvio
+- [~] T021 [US2] Forçar re-scrape dos previews sociais: Facebook Debugger (https://developers.facebook.com/tools/debug/?q=https%3A%2F%2Fcookalaroulette.com%2F) → "Scrape Again"; Twitter Card Validator (https://cards-dev.twitter.com/validator) — esperar imagem 1200×630 + textos EN
 
 ### Bloco E — completar Search Console (depende do deploy)
 
-- [ ] T022 🧑 [US2] No GSC (`https://cookalaroulette.com/`): clicar **Verify** — esperado: "Ownership verified". Se falhar, conferir que o `<meta name="google-site-verification">` está com o token correto em `index.html` (não o placeholder)
+- [X] T022 🧑 [US2] No GSC (`https://cookalaroulette.com/`): clicar **Verify** — esperado: "Ownership verified". Se falhar, conferir que o `<meta name="google-site-verification">` está com o token correto em `index.html` (não o placeholder)
 - [X] T023 [US2] Atualizar `index.html`: substituir `REPLACE_WITH_GSC_TOKEN` pelo token real copiado em T002; commitar e fazer push direto na `main` (single-line change) — repete o deploy do Pages
-- [ ] T024 🧑 [US2] No GSC: aba **Sitemaps** → adicionar `sitemap.xml` → submit; esperado status "Success" (pode demorar minutos)
-- [ ] T025 🧑 [US2] Confirmar no painel do GoatCounter (`https://cookalaroulette.goatcounter.com`) que há **≥ 1 visita** registrada e que clicar no site real dispara um **evento `roleta-clique`** (SC-008)
+- [X] T024 🧑 [US2] No GSC: aba **Sitemaps** → adicionar `sitemap.xml` → submit; esperado status "Success" (pode demorar minutos)
+- [X] T025 🧑 [US2] Confirmar no painel do GoatCounter (`https://cookalaroulette.goatcounter.com`) que há **≥ 1 visita** registrada e que clicar no site real dispara um **evento `roleta-clique`** (SC-008)
 
 **Nota importante sobre a ordem T022/T023**: a sequência real é T023 PRIMEIRO (colocar o token real) → push → esperar Pages republicar → T022 (verificar no GSC). As tasks ficaram nessa ordem porque T022 também pode ser tentada com o placeholder e vai falhar, sinalizando a necessidade de T023. Para reduzir fricção, **executar T023 antes de T022** quando chegar nesse ponto.
 
@@ -90,7 +90,7 @@ em paralelo entre si (são serviços diferentes).
 - [X] T028 [P] Atualizar metadados do repo: `gh repo edit felipekanarek/cookalaroulette --homepage https://cookalaroulette.com` (a descrição pode permanecer ou ganhar menção EN)
 - [X] T029 [P] Atualizar memória do projeto (`~/.claude/projects/-Users-infoprice-cookAlaRoulette/memory/cookalaroulette-status.md`): registrar Fase 6 ✅ no ar em `cookalaroulette.com`, GoatCounter ativo
 - [X] T030 Commit final ("docs(006): README + memória + homepage do repo atualizados") + push; verificar que `git status` está limpo e que `git log --oneline -5` mostra a Fase 6 fechada
-- [ ] T031 Validar todos os SCs da spec ao vivo (SC-001 a SC-008) e registrar resultados; SC-003/SC-004/SC-007 têm janelas de 30/60 dias — anotar a data inicial pra revisitar
+- [~] T031 Validar todos os SCs da spec ao vivo (SC-001 a SC-008) e registrar resultados; SC-003/SC-004/SC-007 têm janelas de 30/60 dias — anotar a data inicial pra revisitar
 
 ## Dependencies & Execution
 
