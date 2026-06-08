@@ -3,25 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cook à la Roulette</title>
-  <meta name="description" content="O universo decide o que você vai cozinhar hoje.">
+
+  <!-- SEO básico (Fase 6) — idioma principal: EN (catálogo é majoritariamente em inglês).
+       lang="pt-BR" da página permanece (afeta acessibilidade/leitura, não a intenção de SEO). -->
+  <title>Cook à la Roulette — what should I cook today?</title>
+  <meta name="description" content="A typographic recipe roulette. Click and the universe decides what you'll cook today — random recipes from chefs around the world, redirecting to their original sites. Sorteador de receitas.">
+  <link rel="canonical" href="https://cookalaroulette.com/">
+
+  <!-- Verificação Google Search Console — substituir REPLACE_WITH_GSC_TOKEN pelo token real
+       após criar a propriedade em https://search.google.com/search-console (Fase 6, T023). -->
+  <meta name="google-site-verification" content="REPLACE_WITH_GSC_TOKEN">
 
   <!-- Compartilhamento social (Open Graph / Twitter Card) — estático, não depende de JS -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Cook à la Roulette">
-  <meta property="og:description" content="O universo decide o que você vai cozinhar hoje.">
-  <meta property="og:url" content="https://felipekanarek.github.io/cookalaroulette/">
-  <meta property="og:image" content="https://felipekanarek.github.io/cookalaroulette/assets/og-image.png">
+  <meta property="og:title" content="Cook à la Roulette — what should I cook today?">
+  <meta property="og:description" content="A typographic recipe roulette. Click and the universe decides what you'll cook today.">
+  <meta property="og:url" content="https://cookalaroulette.com/">
+  <meta property="og:image" content="https://cookalaroulette.com/assets/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Cook à la Roulette">
-  <meta name="twitter:description" content="O universo decide o que você vai cozinhar hoje.">
-  <meta name="twitter:image" content="https://felipekanarek.github.io/cookalaroulette/assets/og-image.png">
+  <meta name="twitter:title" content="Cook à la Roulette — what should I cook today?">
+  <meta name="twitter:description" content="A typographic recipe roulette. Click and the universe decides what you'll cook today.">
+  <meta name="twitter:image" content="https://cookalaroulette.com/assets/og-image.png">
+
+  <!-- Schema.org WebSite — sinaliza ao Google que existe um produto coerente. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Cook à la Roulette",
+    "alternateName": "COOK À LA ROULETTE",
+    "url": "https://cookalaroulette.com/",
+    "description": "A typographic recipe roulette. Click and the universe decides what you'll cook today — random recipes from chefs around the world.",
+    "inLanguage": "en",
+    "author": {
+      "@type": "Person",
+      "name": "Felipe Kanarek",
+      "url": "https://github.com/felipekanarek"
+    },
+    "license": "https://github.com/felipekanarek/cookalaroulette/blob/main/LICENSE"
+  }
+  </script>
 
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
   <!-- a fonte é escolhida aleatoriamente do Google Fonts e injetada por app.js a cada visita -->
+
+  <!-- Analytics privacy-friendly: sem cookies, sem dados pessoais, sem banner LGPD/GDPR.
+       Async + best-effort: o sorteio funciona mesmo se o script não carregar (ad-blocker, etc.). -->
+  <script data-goatcounter="https://cookalaroulette.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
   <button id="roleta" class="roleta" type="button"
