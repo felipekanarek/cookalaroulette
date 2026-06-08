@@ -69,7 +69,7 @@ em paralelo entre si (são serviços diferentes).
 ### Bloco E — completar Search Console (depende do deploy)
 
 - [ ] T022 🧑 [US2] No GSC (`https://cookalaroulette.com/`): clicar **Verify** — esperado: "Ownership verified". Se falhar, conferir que o `<meta name="google-site-verification">` está com o token correto em `index.html` (não o placeholder)
-- [ ] T023 [US2] Atualizar `index.html`: substituir `REPLACE_WITH_GSC_TOKEN` pelo token real copiado em T002; commitar e fazer push direto na `main` (single-line change) — repete o deploy do Pages
+- [X] T023 [US2] Atualizar `index.html`: substituir `REPLACE_WITH_GSC_TOKEN` pelo token real copiado em T002; commitar e fazer push direto na `main` (single-line change) — repete o deploy do Pages
 - [ ] T024 🧑 [US2] No GSC: aba **Sitemaps** → adicionar `sitemap.xml` → submit; esperado status "Success" (pode demorar minutos)
 - [ ] T025 🧑 [US2] Confirmar no painel do GoatCounter (`https://cookalaroulette.goatcounter.com`) que há **≥ 1 visita** registrada e que clicar no site real dispara um **evento `roleta-clique`** (SC-008)
 
