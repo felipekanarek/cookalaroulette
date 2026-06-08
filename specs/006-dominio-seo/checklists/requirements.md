@@ -36,7 +36,8 @@
   tecnologia/framework). São o vocabulário próprio do problema "ser encontrado por buscadores"
   e equivalem a falar em "URL" ou "HTTPS"; aparecem como o **o quê** (artefatos a entregar),
   não o **como** (qual ferramenta usar para gerá-los).
-- Decisões clarificadas em Sessão 2026-06-08 (idioma EN, Search Console no escopo, sem
-  analytics, `.github.io` antigo via redirect). Pronta para `/speckit-plan`.
+- Decisões clarificadas em Sessão 2026-06-08 (idioma EN, Search Console no escopo, **analytics
+  via GoatCounter privacy-friendly** com evento `roleta-clique`, `.github.io` antigo via
+  redirect). Pronta para `/speckit-plan`.
 - Compra do domínio: **feita** (cookalaroulette.com na Hostgator). DNS configurado e GitHub
   Pages Custom Domain ativo com HTTPS — Pilar 1 da fase já está no ar.

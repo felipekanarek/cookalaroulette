@@ -11,7 +11,7 @@
 
 - Q: Idioma principal das metas SEO (`<title>`, `<meta description>`, JSON-LD)? → A: **EN principal**. O catálogo é majoritariamente em inglês e o alcance internacional é maior. O atributo `lang="pt-BR"` da página permanece (afeta acessibilidade/leitura, não SEO). Sem `hreflang` por ora.
 - Q: Cadastro no Google Search Console entra no escopo? → A: **Sim**. Verificação via meta tag `google-site-verification` no `<head>` + submissão do `sitemap.xml`.
-- Q: Algum analytics nesta fase? → A: **Não, zero tracking**. Mantém o produto sem rastreamento (zero cookies/pixel), coerente com Zero Fricção e privacidade. Se houver desejo futuro, será fase própria com ferramenta privacy-friendly.
+- Q: Algum analytics nesta fase? → A: **Sim — GoatCounter** (privacy-friendly, sem cookies, sem banner de consentimento, grátis para uso pessoal). Conta visitas, referrer e **um evento custom de "clique na roleta"** (para medir taxa visita→clique). Implementação: 1 linha de `<script>` no `<head>` + 1 linha em `app.js` no `aoClicar()` para disparar o evento. Não fere Zero Fricção nem Minimalismo Radical (sem elemento visível novo na tela). Constitui exceção mínima ao Princípio VI no mesmo espírito do Google Fonts via CDN — documentar.
 - Q: O que fazer com o subdomínio `.github.io` antigo? → A: **Manter com redirect 301 automático** para `cookalaroulette.com` (comportamento padrão do GitHub após Custom Domain). Canonical concentra autoridade SEO no domínio novo sem quebrar links antigos.
 
 ## User Scenarios & Testing *(mandatory)*
@@ -146,7 +146,14 @@ adicionado.
 - **FR-013**: NENHUM elemento visível permanente MUST ser adicionado ao `<body>` por esta fase
   (Princípio I — Minimalismo Radical).
 - **FR-014**: Esta fase MUST NÃO tocar o scraper, o sorteio, o frontend visual ou o contrato de
-  dados `{chef, site, titulo, url}` (Princípio IV — Separação Estrita).
+  dados `{chef, site, titulo, url}` (Princípio IV — Separação Estrita). A única exceção é uma
+  chamada `goatcounter.count({event: true, path: 'roleta-clique'})` adicionada ao handler do
+  clique em `app.js` — não altera o comportamento do sorteio, só registra o evento.
+- **FR-015**: A homepage MUST incluir o script do GoatCounter no `<head>` (~3 KB, async, sem
+  cookies, sem banner de consentimento). O script MUST falhar silenciosamente se o GoatCounter
+  estiver fora do ar — o sorteio e o redirecionamento NÃO podem depender dele.
+- **FR-016**: O clique de sorteio (`aoClicar`) MUST disparar um evento `roleta-clique` no
+  GoatCounter (best-effort: chamar apenas se `window.goatcounter` existir).
 
 ### Key Entities *(include if feature involves data)*
 
@@ -181,6 +188,10 @@ adicionado.
 - **SC-007**: A versão `.github.io` antiga **não aparece** mais nos resultados do Google para
   buscas do nome da marca dentro de 60 dias (indicando que o canonical + redirect
   consolidaram a autoridade no domínio novo).
+- **SC-008**: O painel do GoatCounter mostra contagem de **visitas** e de **eventos
+  `roleta-clique`** dentro de 24h após o deploy da Fase 6. Em qualquer momento posterior, o
+  mantenedor consegue responder "quantos acessos e quantos cliques tivemos hoje/semana/mês?"
+  abrindo o painel.
 
 ## Assumptions
 
@@ -198,10 +209,14 @@ Decisões-padrão tomadas na ausência de definição explícita (a confirmar em
 - **Search Console**: dentro do escopo desta fase. Verificação via meta tag
   `google-site-verification` no `<head>` (mais simples, não depende de acesso ao DNS depois) e
   submissão do `sitemap.xml`.
-- **Analytics**: NÃO incluído nesta fase. Manter o produto sem rastreamento (zero cookies de
-  terceiros, zero pixel) é coerente com Zero Fricção (Princípio II) e com a sensação de
-  "abrir, clicar, sair". Métricas, se um dia desejadas, virão como fase própria via
-  ferramenta privacy-friendly.
+- **Analytics** (clarificado): **GoatCounter** — privacy-friendly (sem cookies, sem coleta de
+  dados pessoais, sem banner LGPD/GDPR exigido), 1 linha de `<script>` no `<head>` + 1 chamada
+  no `aoClicar` para o evento custom `roleta-clique`. Mede visitas, referrer, países, e a
+  taxa visita→clique. Conta gratuita (uso pessoal). O carregamento é assíncrono e falha
+  silenciosamente — o produto continua funcionando se o serviço cair.
+- **Constitucional**: o script externo do GoatCounter é uma **exceção documentada ao Princípio
+  VI**, no mesmo espírito da exceção já aberta para Google Fonts via CDN. Sem cookies e sem
+  elemento visível, não conflita com Zero Fricção nem Minimalismo Radical.
 - **`.github.io` antigo**: mantido acessível, redirecionando automaticamente para o domínio
   novo (comportamento padrão do GitHub após `Custom domain` — não vamos bloqueá-lo via robots).
   O canonical concentra autoridade SEO no domínio novo sem precisar quebrar o link antigo.
