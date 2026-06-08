@@ -21,14 +21,14 @@ em paralelo entre si (são serviços diferentes).
 
 ## Phase 2: Foundational
 
-- [ ] T003 Reconfirmar Pilar 1 antes de prosseguir: rodar `curl -sI https://cookalaroulette.com | head -3` (esperado HTTP/2 200) e `dig +short cookalaroulette.com` (esperado os 4 IPs do GitHub) — registrar print/saída no commit se algo divergir
+- [X] T003 Reconfirmar Pilar 1 antes de prosseguir: rodar `curl -sI https://cookalaroulette.com | head -3` (esperado HTTP/2 200) e `dig +short cookalaroulette.com` (esperado os 4 IPs do GitHub) — registrar print/saída no commit se algo divergir
 
 ## Phase 3: User Story 1 — Domínio próprio (Priority: P1)
 
 **Goal**: completar a transição visual/social para o domínio novo — as URLs absolutas em OG/Twitter ainda apontam para o `.github.io`.
 **Independent Test**: depois desta fase, compartilhar o link em uma rede social (ou usar o Facebook Debugger) mostra a prévia carregando `og:image` de `cookalaroulette.com`, não do `.github.io`.
 
-- [ ] T004 [US1] Atualizar URLs absolutas em `index.html` `<head>`: `og:url`, `og:image`, `twitter:image` → `https://cookalaroulette.com/...` (substituir o host `felipekanarek.github.io/cookalaroulette` por `cookalaroulette.com`). Textos OG/Twitter continuam por ora (US2 cuida disso).
+- [X] T004 [US1] Atualizar URLs absolutas em `index.html` `<head>`: `og:url`, `og:image`, `twitter:image` → `https://cookalaroulette.com/...` (substituir o host `felipekanarek.github.io/cookalaroulette` por `cookalaroulette.com`). Textos OG/Twitter continuam por ora (US2 cuida disso).
 
 **Checkpoint US1**: domínio próprio + HTTPS + redirects + URLs OG corretas. Compartilhamento social funciona com o domínio novo.
 
@@ -39,24 +39,24 @@ em paralelo entre si (são serviços diferentes).
 
 ### Bloco A — alterações no `<head>` de `index.html` (sequenciais, mesmo arquivo)
 
-- [ ] T005 [US2] Substituir `<title>` em `index.html` por: `Cook à la Roulette — what should I cook today?`
-- [ ] T006 [US2] Substituir `<meta name="description">` em `index.html` pelo texto EN do contrato (`contracts/seo-meta.md` §1): "A typographic recipe roulette. Click and the universe decides what you'll cook today — random recipes from chefs around the world, redirecting to their original sites. Sorteador de receitas."
-- [ ] T007 [US2] Adicionar `<link rel="canonical" href="https://cookalaroulette.com/">` em `index.html` logo após `<meta name="description">`
-- [ ] T008 [US2] Adicionar `<meta name="google-site-verification" content="REPLACE_WITH_GSC_TOKEN">` em `index.html` (token real entra em T015 depois que Felipe abrir o GSC)
-- [ ] T009 [US2] Atualizar textos das tags Open Graph e Twitter em `index.html` para EN (espelhando title/description novos); manter URLs absolutas já corrigidas em T004
-- [ ] T010 [US2] Adicionar `<meta property="og:locale" content="en_US">` em `index.html` (no bloco OG)
-- [ ] T011 [US2] Adicionar bloco `<script type="application/ld+json">` em `index.html` com Schema.org `WebSite` (estrutura exata em `contracts/seo-meta.md` §5)
-- [ ] T012 [US2] Adicionar snippet do GoatCounter ao final do `<head>` de `index.html`: `<script data-goatcounter="https://cookalaroulette.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>` (precedido por comentário explicativo)
+- [X] T005 [US2] Substituir `<title>` em `index.html` por: `Cook à la Roulette — what should I cook today?`
+- [X] T006 [US2] Substituir `<meta name="description">` em `index.html` pelo texto EN do contrato (`contracts/seo-meta.md` §1): "A typographic recipe roulette. Click and the universe decides what you'll cook today — random recipes from chefs around the world, redirecting to their original sites. Sorteador de receitas."
+- [X] T007 [US2] Adicionar `<link rel="canonical" href="https://cookalaroulette.com/">` em `index.html` logo após `<meta name="description">`
+- [X] T008 [US2] Adicionar `<meta name="google-site-verification" content="REPLACE_WITH_GSC_TOKEN">` em `index.html` (token real entra em T015 depois que Felipe abrir o GSC)
+- [X] T009 [US2] Atualizar textos das tags Open Graph e Twitter em `index.html` para EN (espelhando title/description novos); manter URLs absolutas já corrigidas em T004
+- [X] T010 [US2] Adicionar `<meta property="og:locale" content="en_US">` em `index.html` (no bloco OG)
+- [X] T011 [US2] Adicionar bloco `<script type="application/ld+json">` em `index.html` com Schema.org `WebSite` (estrutura exata em `contracts/seo-meta.md` §5)
+- [X] T012 [US2] Adicionar snippet do GoatCounter ao final do `<head>` de `index.html`: `<script data-goatcounter="https://cookalaroulette.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>` (precedido por comentário explicativo)
 
 ### Bloco B — arquivos paralelos (entre si e com Bloco A)
 
-- [ ] T013 [P] [US2] Criar `robots.txt` na raiz do repo com 3 linhas exatas (`contracts/robots.md`): `User-agent: *` / `Allow: /` / linha em branco / `Sitemap: https://cookalaroulette.com/sitemap.xml`
-- [ ] T014 [P] [US2] Criar `sitemap.xml` na raiz do repo com 1 `<url>` apontando para `https://cookalaroulette.com/` + `<lastmod>` data de hoje (`contracts/sitemap.md`)
-- [ ] T015 [P] [US2] Adicionar 1 linha em `app.js` dentro de `aoClicar()` (antes do `redirecionar(...)`): `try { window.goatcounter && window.goatcounter.count({ event: true, path: 'roleta-clique' }); } catch (_) {}`
+- [X] T013 [P] [US2] Criar `robots.txt` na raiz do repo com 3 linhas exatas (`contracts/robots.md`): `User-agent: *` / `Allow: /` / linha em branco / `Sitemap: https://cookalaroulette.com/sitemap.xml`
+- [X] T014 [P] [US2] Criar `sitemap.xml` na raiz do repo com 1 `<url>` apontando para `https://cookalaroulette.com/` + `<lastmod>` data de hoje (`contracts/sitemap.md`)
+- [X] T015 [P] [US2] Adicionar 1 linha em `app.js` dentro de `aoClicar()` (antes do `redirecionar(...)`): `try { window.goatcounter && window.goatcounter.count({ event: true, path: 'roleta-clique' }); } catch (_) {}`
 
 ### Bloco C — primeiro deploy
 
-- [ ] T016 [US2] Commit dos blocos A + B (mensagem: "feat(seo): meta SEO em EN + JSON-LD + GoatCounter + robots/sitemap"); push para origin/006-dominio-seo
+- [X] T016 [US2] Commit dos blocos A + B (mensagem: "feat(seo): meta SEO em EN + JSON-LD + GoatCounter + robots/sitemap"); push para origin/006-dominio-seo
 - [ ] T017 [US2] Merge da branch `006-dominio-seo` em `main` (`git checkout main && git merge --no-ff 006-dominio-seo`) e `git push origin main` — GitHub Pages republica em ~30s
 
 ### Bloco D — validações pós-deploy

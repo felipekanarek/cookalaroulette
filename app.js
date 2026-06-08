@@ -74,6 +74,10 @@
   // Clique: trava → roleta de fontes (~0,8s) → redireciona (FR-009/FR-013).
   function aoClicar() {
     if (girando || roleta.disabled) return;
+    // Analytics privacy-friendly (best-effort, falha silenciosa): conta o clique como evento
+    // custom 'roleta-clique' no GoatCounter. Sem cookies, sem dados pessoais. Se o script
+    // não estiver carregado (ad-blocker, offline), o sorteio segue funcionando normalmente.
+    try { window.goatcounter && window.goatcounter.count({ event: true, path: 'roleta-clique' }); } catch (_) {}
     const receita = window.Sorteio.sortear(receitas);
     if (!receita) { desabilitar(MSG_VAZIO); return; }
 
