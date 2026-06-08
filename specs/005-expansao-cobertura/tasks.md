@@ -76,8 +76,8 @@ Validação de aceite por site: `python3 -c "from scrapers import <m>; print(len
 
 - [X] T042 [P] [US1] `scrapers/greatbritishchefs.py` — Great British Chefs (greatbritishchefs.com, UK)
 - [X] T043 [P] [US1] `scrapers/greatitalianchefs.py` — Great Italian Chefs (greatitalianchefs.com, IT)
-- [ ] T044 [P] [US1] `scrapers/greatspanishchefs.py` — Great Spanish Chefs (greatspanishchefs.com, ES)
-- [ ] T045 [P] [US1] `scrapers/greatpolishchefs.py` — Great Polish Chefs (greatpolishchefs.com, PL)
+- [~] T044 greatspanishchefs — FORA (só federa receitas dos sites irmãos)
+- [~] T045 greatpolishchefs — FORA (só federa receitas dos sites irmãos)
 - [X] T046 [P] [US1] `scrapers/giallozafferano.py` — GialloZafferano (giallozafferano.it, IT)
 - [X] T047 [P] [US1] `scrapers/kingarthurbaking.py` — King Arthur Baking (kingarthurbaking.com, US)
 - [X] T048 [P] [US1] `scrapers/saveur.py` — Saveur (saveur.com, US)
@@ -96,22 +96,22 @@ Validação de aceite por site: `python3 -c "from scrapers import <m>; print(len
 
 ### Lote 6 — Requer navegador (Playwright)
 
-- [ ] T054 [P] [US2] `scrapers/ranveerbrar.py` — Ranveer Brar (ranveerbrar.com, IN — navegador)
-- [ ] T055 [P] [US2] `scrapers/kenhom.py` — Ken Hom (kenhom.com, CN/UK — navegador)
-- [ ] T056 [P] [US2] `scrapers/damndelicious.py` — Chung-Ah Rhee (damndelicious.net, US — navegador)
-- [ ] T057 [P] [US2] `scrapers/food52.py` — Food52 (food52.com, US — navegador, filtro restritivo + teto moderado)
-- [ ] T058 [P] [US2] `scrapers/mexicoinmykitchen.py` — Mely Martínez (mexicoinmykitchen.com, MX — navegador)
+- [X] T054 [P] [US2] `scrapers/ranveerbrar.py` — Ranveer Brar (ranveerbrar.com, IN — navegador)
+- [~] T055 kenhom — FORA (site sem URLs de receita individual)
+- [X] T056 [P] [US2] `scrapers/damndelicious.py` — Chung-Ah Rhee (damndelicious.net, US — navegador)
+- [X] T057 [P] [US2] `scrapers/food52.py` — Food52 (food52.com, US — navegador, filtro restritivo + teto moderado)
+- [X] T058 [P] [US2] `scrapers/mexicoinmykitchen.py` — Mely Martínez (mexicoinmykitchen.com, MX — navegador)
 - [ ] T059 [US2] Registrar T054–T058 em `orquestrador.py` e integrar via `--site` (limite 1000); atualizar `cobertura.md`
 
 ### Lote 7 — Bloqueado na verificação (HTTP via Python; url_viva tolerante / wayback)
 
-- [ ] T060 [P] [US2] `scrapers/bbcgoodfood.py` — BBC Good Food (bbcgoodfood.com, UK)
-- [ ] T061 [P] [US2] `scrapers/bonappetit.py` — Bon Appétit (bonappetit.com, US — Condé Nast)
-- [ ] T062 [P] [US2] `scrapers/epicurious.py` — Epicurious (epicurious.com, US — Condé Nast)
-- [ ] T063 [P] [US2] `scrapers/foodandwine.py` — Food & Wine (foodandwine.com, US — Dotdash)
-- [ ] T064 [P] [US2] `scrapers/marthastewart.py` — Martha Stewart (marthastewart.com, US)
-- [ ] T065 [P] [US2] `scrapers/delish.py` — Delish (delish.com, US — Hearst)
-- [ ] T066 [P] [US2] `scrapers/thespruceeats.py` — The Spruce Eats (thespruceeats.com, US — Dotdash)
+- [X] T060 [P] [US2] `scrapers/bbcgoodfood.py` — BBC Good Food (bbcgoodfood.com, UK)
+- [X] T061 [P] [US2] `scrapers/bonappetit.py` — Bon Appétit (bonappetit.com, US — Condé Nast)
+- [X] T062 [P] [US2] `scrapers/epicurious.py` — Epicurious (epicurious.com, US — Condé Nast)
+- [X] T063 [P] [US2] `scrapers/foodandwine.py` — Food & Wine (foodandwine.com, US — Dotdash)
+- [~] T064 marthastewart — FORA (Cloudflare hard)
+- [X] T065 [P] [US2] `scrapers/delish.py` — Delish (delish.com, US — Hearst)
+- [X] T066 [P] [US2] `scrapers/thespruceeats.py` — The Spruce Eats (thespruceeats.com, US — Dotdash)
 - [ ] T067 [US2] Registrar T060–T066 em `orquestrador.py` e integrar via `--site` (limite 1000); atualizar `cobertura.md`
 
 **Checkpoint US2**: sites difíceis tratados pela técnica certa, sem evasão; bloqueados não descartados.

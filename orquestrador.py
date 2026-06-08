@@ -45,7 +45,11 @@ from scrapers import (base, recipetineats, panelinha, jamieoliver, seriouseats, 
                       raymondblanc, marionskitchen, twospoons,
                       # Lista 2 — Lote 5 (editorial/marca + coquetéis)
                       greatbritishchefs, greatitalianchefs, giallozafferano, kingarthurbaking,
-                      saveur, thekitchn, liquor, punchdrink, diffordsguide)
+                      saveur, thekitchn, liquor, punchdrink, diffordsguide,
+                      # Lista 2 — Lote 6 (Playwright; kenhom fora: site sem URLs de receita)
+                      ranveerbrar, damndelicious, food52, mexicoinmykitchen,
+                      # Lista 2 — Lote 7 (bloqueados/WAF; marthastewart fora: Cloudflare hard)
+                      bbcgoodfood, bonappetit, epicurious, foodandwine, delish, thespruceeats)
 # Serious Eats, David Lebovitz e Hot Thai Kitchen estão atrás do Cloudflare → descobertos
 # via Internet Archive (Wayback), sem tocar no site. NÃO registrado: zoesghana (domínio morto).
 
@@ -73,7 +77,11 @@ ADAPTADORES = [recipetineats, panelinha, jamieoliver, seriouseats, maangchi,
                raymondblanc, marionskitchen, twospoons,
                # Lista 2 — Lote 5 (greatspanishchefs/greatpolishchefs em espera: só federam receitas)
                greatbritishchefs, greatitalianchefs, giallozafferano, kingarthurbaking,
-               saveur, thekitchn, liquor, punchdrink, diffordsguide]
+               saveur, thekitchn, liquor, punchdrink, diffordsguide,
+               # Lista 2 — Lote 6 (Playwright; kenhom fora: site sem URLs de receita)
+               ranveerbrar, damndelicious, food52, mexicoinmykitchen,
+               # Lista 2 — Lote 7 (bloqueados/WAF; marthastewart fora: Cloudflare hard)
+               bbcgoodfood, bonappetit, epicurious, foodandwine, delish, thespruceeats]
 
 RAIZ = os.path.dirname(os.path.abspath(__file__))
 SAIDA = os.path.join(RAIZ, "data", "receitas.json")
