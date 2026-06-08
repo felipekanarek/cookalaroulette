@@ -30,7 +30,7 @@ Validação de aceite por site: `python3 -c "from scrapers import <m>; print(len
 - [X] T007 [P] [US1] `scrapers/chileanfoodandgarden.py` — Pilar Hernandez (chileanfoodandgarden.com, CL)
 - [X] T008 [P] [US1] `scrapers/leitesculinaria.py` — David Leite (leitesculinaria.com, PT/US)
 - [X] T009 [P] [US1] `scrapers/hogarmania.py` — Karlos Arguiñano (hogarmania.com, ES)
-- [ ] T010 [US1] Registrar T004–T009 em `orquestrador.py` (import + ADAPTADORES) e integrar: `python3 orquestrador.py --site paolacarosella --site cravingsjournal --site mycolombianrecipes --site chileanfoodandgarden --site leitesculinaria --site hogarmania --limite 1000`; atualizar `cobertura.md`
+- [X] T010 [US1] Registrar T004–T009 em `orquestrador.py` (import + ADAPTADORES) e integrar: `python3 orquestrador.py --site paolacarosella --site cravingsjournal --site mycolombianrecipes --site chileanfoodandgarden --site leitesculinaria --site hogarmania --limite 1000`; atualizar `cobertura.md`
 
 ### Lote 2 — Food blogs EUA
 
@@ -43,7 +43,7 @@ Validação de aceite por site: `python3 -c "from scrapers import <m>; print(len
 - [X] T017 [P] [US1] `scrapers/gimmesomeoven.py` — Ali Martin (gimmesomeoven.com, US)
 - [X] T018 [P] [US1] `scrapers/joythebaker.py` — Joy Wilson (joythebaker.com, US)
 - [X] T019 [P] [US1] `scrapers/themodernproper.py` — The Modern Proper (themodernproper.com, US)
-- [ ] T020 [US1] Registrar T011–T019 em `orquestrador.py` e integrar via `--site` (limite 1000); atualizar `cobertura.md`
+- [X] T020 [US1] Registrar T011–T019 em `orquestrador.py` e integrar via `--site` (limite 1000); atualizar `cobertura.md`
 
 ### Lote 3 — Ásia
 
@@ -54,7 +54,7 @@ Validação de aceite por site: `python3 -c "from scrapers import <m>; print(len
 - [X] T025 [P] [US1] `scrapers/soupeduprecipes.py` — Mandy (soupeduprecipes.com, CN)
 - [X] T026 [P] [US1] `scrapers/yejiskitchenstories.py` — Yeji (yejiskitchenstories.com, KR)
 - [X] T027 [P] [US1] `scrapers/archanaskitchen.py` — Archana Doshi (archanaskitchen.com, IN)
-- [ ] T028 [US1] Registrar T021–T027 em `orquestrador.py` e integrar via `--site` (limite 1000); atualizar `cobertura.md`
+- [X] T028 [US1] Registrar T021–T027 em `orquestrador.py` e integrar via `--site` (limite 1000); atualizar `cobertura.md`
 
 ### Lote 4 — Europa / Oriente Médio / Oceania / África
 
@@ -70,7 +70,7 @@ Validação de aceite por site: `python3 -c "from scrapers import <m>; print(len
 - [X] T038 [P] [US1] `scrapers/marionskitchen.py` — Marion Grasby (marionskitchen.com, AU/TH)
 - [X] T039 [P] [US1] `scrapers/twospoons.py` — Hannah Sunderani (twospoons.ca, CA)
 - [~] T040 [US1] africanbites — FORA (Cloudflare total; revisitar com fix do wayback)
-- [ ] T041 [US1] Registrar T029–T040 em `orquestrador.py` e integrar via `--site` (limite 1000); atualizar `cobertura.md`
+- [X] T041 [US1] Registrar T029–T040 em `orquestrador.py` e integrar via `--site` (limite 1000); atualizar `cobertura.md`
 
 ### Lote 5 — Editorial / marca + coquetéis
 
@@ -85,7 +85,7 @@ Validação de aceite por site: `python3 -c "from scrapers import <m>; print(len
 - [X] T050 [P] [US1] `scrapers/liquor.py` — Liquor.com (liquor.com, US — coquetéis)
 - [X] T051 [P] [US1] `scrapers/punchdrink.py` — Punch (punchdrink.com, US — coquetéis)
 - [X] T052 [P] [US1] `scrapers/diffordsguide.py` — Difford's Guide (diffordsguide.com, UK — coquetéis)
-- [ ] T053 [US1] Registrar T042–T052 em `orquestrador.py` e integrar via `--site` (limite 1000); atualizar `cobertura.md`
+- [X] T053 [US1] Registrar T042–T052 em `orquestrador.py` e integrar via `--site` (limite 1000); atualizar `cobertura.md`
 
 **Checkpoint US1**: maioria dos ~45 sites integrados; catálogo cresceu; Lista 1 preservada.
 
@@ -101,7 +101,7 @@ Validação de aceite por site: `python3 -c "from scrapers import <m>; print(len
 - [X] T056 [P] [US2] `scrapers/damndelicious.py` — Chung-Ah Rhee (damndelicious.net, US — navegador)
 - [X] T057 [P] [US2] `scrapers/food52.py` — Food52 (food52.com, US — navegador, filtro restritivo + teto moderado)
 - [X] T058 [P] [US2] `scrapers/mexicoinmykitchen.py` — Mely Martínez (mexicoinmykitchen.com, MX — navegador)
-- [ ] T059 [US2] Registrar T054–T058 em `orquestrador.py` e integrar via `--site` (limite 1000); atualizar `cobertura.md`
+- [X] T059 [US2] Registrar T054–T058 em `orquestrador.py` e integrar via `--site` (limite 1000); atualizar `cobertura.md`
 
 ### Lote 7 — Bloqueado na verificação (HTTP via Python; url_viva tolerante / wayback)
 
@@ -112,7 +112,7 @@ Validação de aceite por site: `python3 -c "from scrapers import <m>; print(len
 - [~] T064 marthastewart — FORA (Cloudflare hard)
 - [X] T065 [P] [US2] `scrapers/delish.py` — Delish (delish.com, US — Hearst)
 - [X] T066 [P] [US2] `scrapers/thespruceeats.py` — The Spruce Eats (thespruceeats.com, US — Dotdash)
-- [ ] T067 [US2] Registrar T060–T066 em `orquestrador.py` e integrar via `--site` (limite 1000); atualizar `cobertura.md`
+- [X] T067 [US2] Registrar T060–T066 em `orquestrador.py` e integrar via `--site` (limite 1000); atualizar `cobertura.md`
 
 **Checkpoint US2**: sites difíceis tratados pela técnica certa, sem evasão; bloqueados não descartados.
 
