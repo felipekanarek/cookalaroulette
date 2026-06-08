@@ -58,18 +58,18 @@ Validação de aceite por site: `python3 -c "from scrapers import <m>; print(len
 
 ### Lote 4 — Europa / Oriente Médio / Oceania / África
 
-- [ ] T029 [P] [US1] `scrapers/fattoincasadabenedetta.py` — Benedetta Rossi (fattoincasadabenedetta.it, IT)
-- [ ] T030 [P] [US1] `scrapers/soniaperonaci.py` — Sonia Peronaci (soniaperonaci.it, IT)
-- [ ] T031 [P] [US1] `scrapers/argiro.py` — Argiro Barbarigou (argiro.gr, GR)
-- [ ] T032 [P] [US1] `scrapers/cookingwithalia.py` — Alia Laskar (cookingwithalia.com, MA)
-- [ ] T033 [P] [US1] `scrapers/zaatarandzaytoun.py` — Yosra Hamden (zaatarandzaytoun.com, LB)
-- [ ] T034 [P] [US1] `scrapers/cheftariq.py` — Chef Tariq (cheftariq.com, ME)
-- [ ] T035 [P] [US1] `scrapers/chocolateandzucchini.py` — Clotilde Dusoulier (cnz.to, FR)
-- [ ] T036 [P] [US1] `scrapers/rickstein.py` — Rick Stein (rickstein.com, UK)
-- [ ] T037 [P] [US1] `scrapers/raymondblanc.py` — Raymond Blanc (raymondblanc.com, FR)
-- [ ] T038 [P] [US1] `scrapers/marionskitchen.py` — Marion Grasby (marionskitchen.com, AU/TH)
-- [ ] T039 [P] [US1] `scrapers/twospoons.py` — Hannah Sunderani (twospoons.ca, CA)
-- [ ] T040 [P] [US1] `scrapers/africanbites.py` — Imma Allen (africanbites.com, NG/US)
+- [X] T029 [P] [US1] `scrapers/fattoincasadabenedetta.py` — Benedetta Rossi (fattoincasadabenedetta.it, IT)
+- [X] T030 [P] [US1] `scrapers/soniaperonaci.py` — Sonia Peronaci (soniaperonaci.it, IT)
+- [X] T031 [P] [US1] `scrapers/argiro.py` — Argiro Barbarigou (argiro.gr, GR)
+- [X] T032 [P] [US1] `scrapers/cookingwithalia.py` — Alia Laskar (cookingwithalia.com, MA)
+- [X] T033 [P] [US1] `scrapers/zaatarandzaytoun.py` — Yosra Hamden (zaatarandzaytoun.com, LB)
+- [X] T034 [P] [US1] `scrapers/cheftariq.py` — Chef Tariq (cheftariq.com, ME)
+- [X] T035 [P] [US1] `scrapers/chocolateandzucchini.py` — Clotilde Dusoulier (cnz.to, FR)
+- [X] T036 [P] [US1] `scrapers/rickstein.py` — Rick Stein (rickstein.com, UK)
+- [X] T037 [P] [US1] `scrapers/raymondblanc.py` — Raymond Blanc (raymondblanc.com, FR)
+- [X] T038 [P] [US1] `scrapers/marionskitchen.py` — Marion Grasby (marionskitchen.com, AU/TH)
+- [X] T039 [P] [US1] `scrapers/twospoons.py` — Hannah Sunderani (twospoons.ca, CA)
+- [~] T040 [US1] africanbites — FORA (Cloudflare total; revisitar com fix do wayback)
 - [ ] T041 [US1] Registrar T029–T040 em `orquestrador.py` e integrar via `--site` (limite 1000); atualizar `cobertura.md`
 
 ### Lote 5 — Editorial / marca + coquetéis

@@ -39,7 +39,7 @@ Status por site: `pendente` → `ok (N)` (integrado com N receitas) | `sem-recei
 | 4 | raymondblanc.com | raymondblanc | A | pendente | — | |
 | 4 | marionskitchen.com | marionskitchen | A | pendente | — | |
 | 4 | twospoons.ca | twospoons | A | pendente | — | |
-| 4 | africanbites.com | africanbites | A | pendente | — | |
+| 4 | africanbites.com | africanbites | D | fora | — | Cloudflare total; adiado p/ fix wayback |
 | 5 | greatbritishchefs.com | greatbritishchefs | B | pendente | — | |
 | 5 | greatitalianchefs.com | greatitalianchefs | B | pendente | — | |
 | 5 | greatspanishchefs.com | greatspanishchefs | B | pendente | — | |
