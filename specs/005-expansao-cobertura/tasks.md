@@ -74,17 +74,17 @@ Validação de aceite por site: `python3 -c "from scrapers import <m>; print(len
 
 ### Lote 5 — Editorial / marca + coquetéis
 
-- [ ] T042 [P] [US1] `scrapers/greatbritishchefs.py` — Great British Chefs (greatbritishchefs.com, UK)
-- [ ] T043 [P] [US1] `scrapers/greatitalianchefs.py` — Great Italian Chefs (greatitalianchefs.com, IT)
+- [X] T042 [P] [US1] `scrapers/greatbritishchefs.py` — Great British Chefs (greatbritishchefs.com, UK)
+- [X] T043 [P] [US1] `scrapers/greatitalianchefs.py` — Great Italian Chefs (greatitalianchefs.com, IT)
 - [ ] T044 [P] [US1] `scrapers/greatspanishchefs.py` — Great Spanish Chefs (greatspanishchefs.com, ES)
 - [ ] T045 [P] [US1] `scrapers/greatpolishchefs.py` — Great Polish Chefs (greatpolishchefs.com, PL)
-- [ ] T046 [P] [US1] `scrapers/giallozafferano.py` — GialloZafferano (giallozafferano.it, IT)
-- [ ] T047 [P] [US1] `scrapers/kingarthurbaking.py` — King Arthur Baking (kingarthurbaking.com, US)
-- [ ] T048 [P] [US1] `scrapers/saveur.py` — Saveur (saveur.com, US)
-- [ ] T049 [P] [US1] `scrapers/thekitchn.py` — The Kitchn (thekitchn.com, US)
-- [ ] T050 [P] [US1] `scrapers/liquor.py` — Liquor.com (liquor.com, US — coquetéis)
-- [ ] T051 [P] [US1] `scrapers/punchdrink.py` — Punch (punchdrink.com, US — coquetéis)
-- [ ] T052 [P] [US1] `scrapers/diffordsguide.py` — Difford's Guide (diffordsguide.com, UK — coquetéis)
+- [X] T046 [P] [US1] `scrapers/giallozafferano.py` — GialloZafferano (giallozafferano.it, IT)
+- [X] T047 [P] [US1] `scrapers/kingarthurbaking.py` — King Arthur Baking (kingarthurbaking.com, US)
+- [X] T048 [P] [US1] `scrapers/saveur.py` — Saveur (saveur.com, US)
+- [X] T049 [P] [US1] `scrapers/thekitchn.py` — The Kitchn (thekitchn.com, US)
+- [X] T050 [P] [US1] `scrapers/liquor.py` — Liquor.com (liquor.com, US — coquetéis)
+- [X] T051 [P] [US1] `scrapers/punchdrink.py` — Punch (punchdrink.com, US — coquetéis)
+- [X] T052 [P] [US1] `scrapers/diffordsguide.py` — Difford's Guide (diffordsguide.com, UK — coquetéis)
 - [ ] T053 [US1] Registrar T042–T052 em `orquestrador.py` e integrar via `--site` (limite 1000); atualizar `cobertura.md`
 
 **Checkpoint US1**: maioria dos ~45 sites integrados; catálogo cresceu; Lista 1 preservada.

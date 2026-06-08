@@ -42,7 +42,10 @@ from scrapers import (base, recipetineats, panelinha, jamieoliver, seriouseats, 
                       # Lista 2 — Lote 4
                       fattoincasadabenedetta, soniaperonaci, argiro, cookingwithalia,
                       zaatarandzaytoun, cheftariq, chocolateandzucchini, rickstein,
-                      raymondblanc, marionskitchen, twospoons)
+                      raymondblanc, marionskitchen, twospoons,
+                      # Lista 2 — Lote 5 (editorial/marca + coquetéis)
+                      greatbritishchefs, greatitalianchefs, giallozafferano, kingarthurbaking,
+                      saveur, thekitchn, liquor, punchdrink, diffordsguide)
 # Serious Eats, David Lebovitz e Hot Thai Kitchen estão atrás do Cloudflare → descobertos
 # via Internet Archive (Wayback), sem tocar no site. NÃO registrado: zoesghana (domínio morto).
 
@@ -67,7 +70,10 @@ ADAPTADORES = [recipetineats, panelinha, jamieoliver, seriouseats, maangchi,
                # Lista 2 — Lote 4 (africanbites fora: Cloudflare)
                fattoincasadabenedetta, soniaperonaci, argiro, cookingwithalia,
                zaatarandzaytoun, cheftariq, chocolateandzucchini, rickstein,
-               raymondblanc, marionskitchen, twospoons]
+               raymondblanc, marionskitchen, twospoons,
+               # Lista 2 — Lote 5 (greatspanishchefs/greatpolishchefs em espera: só federam receitas)
+               greatbritishchefs, greatitalianchefs, giallozafferano, kingarthurbaking,
+               saveur, thekitchn, liquor, punchdrink, diffordsguide]
 
 RAIZ = os.path.dirname(os.path.abspath(__file__))
 SAIDA = os.path.join(RAIZ, "data", "receitas.json")
