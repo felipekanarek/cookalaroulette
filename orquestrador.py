@@ -28,7 +28,28 @@ from scrapers import (base, recipetineats, panelinha, jamieoliver, seriouseats, 
                       kwestiasmaku, donalskehan, northwildkitchen, trinehahnemann,
                       callmecupcake, kitchenbutterfly, simplydelicious, thewoksoflife,
                       sanjeevkapoor, danangcuisine, belagil, nigella, ottolenghi,
-                      smittenkitchen, adamliaw, misya, davidlebovitz, hotthaikitchen)
+                      smittenkitchen, adamliaw, misya, davidlebovitz, hotthaikitchen,
+                      # Lista 2 — Lote 1
+                      paolacarosella, cravingsjournal, mycolombianrecipes,
+                      chileanfoodandgarden, leitesculinaria, hogarmania,
+                      # Lista 2 — Lote 2
+                      ciaosamin, sallysbaking, minimalistbaker, pinchofyum,
+                      loveandlemons, downshiftology, gimmesomeoven, joythebaker,
+                      themodernproper,
+                      # Lista 2 — Lote 3
+                      chopstickchronicles, koreanbapsang, vietworldkitchen, madewithlau,
+                      soupeduprecipes, yejiskitchenstories, archanaskitchen,
+                      # Lista 2 — Lote 4
+                      fattoincasadabenedetta, soniaperonaci, argiro, cookingwithalia,
+                      zaatarandzaytoun, cheftariq, chocolateandzucchini, rickstein,
+                      raymondblanc, marionskitchen, twospoons,
+                      # Lista 2 — Lote 5 (editorial/marca + coquetéis)
+                      greatbritishchefs, greatitalianchefs, giallozafferano, kingarthurbaking,
+                      saveur, thekitchn, liquor, punchdrink, diffordsguide,
+                      # Lista 2 — Lote 6 (Playwright; kenhom fora: site sem URLs de receita)
+                      ranveerbrar, damndelicious, food52, mexicoinmykitchen,
+                      # Lista 2 — Lote 7 (bloqueados/WAF; marthastewart fora: Cloudflare hard)
+                      bbcgoodfood, bonappetit, epicurious, foodandwine, delish, thespruceeats)
 # Serious Eats, David Lebovitz e Hot Thai Kitchen estão atrás do Cloudflare → descobertos
 # via Internet Archive (Wayback), sem tocar no site. NÃO registrado: zoesghana (domínio morto).
 
@@ -39,7 +60,28 @@ ADAPTADORES = [recipetineats, panelinha, jamieoliver, seriouseats, maangchi,
                kwestiasmaku, donalskehan, northwildkitchen, trinehahnemann,
                callmecupcake, kitchenbutterfly, simplydelicious, thewoksoflife,
                sanjeevkapoor, danangcuisine, belagil, nigella, ottolenghi,
-               smittenkitchen, adamliaw, misya, davidlebovitz, hotthaikitchen]
+               smittenkitchen, adamliaw, misya, davidlebovitz, hotthaikitchen,
+               # Lista 2 — Lote 1
+               paolacarosella, cravingsjournal, mycolombianrecipes,
+               chileanfoodandgarden, leitesculinaria, hogarmania,
+               # Lista 2 — Lote 2
+               ciaosamin, sallysbaking, minimalistbaker, pinchofyum,
+               loveandlemons, downshiftology, gimmesomeoven, joythebaker,
+               themodernproper,
+               # Lista 2 — Lote 3
+               chopstickchronicles, koreanbapsang, vietworldkitchen, madewithlau,
+               soupeduprecipes, yejiskitchenstories, archanaskitchen,
+               # Lista 2 — Lote 4 (africanbites fora: Cloudflare)
+               fattoincasadabenedetta, soniaperonaci, argiro, cookingwithalia,
+               zaatarandzaytoun, cheftariq, chocolateandzucchini, rickstein,
+               raymondblanc, marionskitchen, twospoons,
+               # Lista 2 — Lote 5 (greatspanishchefs/greatpolishchefs em espera: só federam receitas)
+               greatbritishchefs, greatitalianchefs, giallozafferano, kingarthurbaking,
+               saveur, thekitchn, liquor, punchdrink, diffordsguide,
+               # Lista 2 — Lote 6 (Playwright; kenhom fora: site sem URLs de receita)
+               ranveerbrar, damndelicious, food52, mexicoinmykitchen,
+               # Lista 2 — Lote 7 (bloqueados/WAF; marthastewart fora: Cloudflare hard)
+               bbcgoodfood, bonappetit, epicurious, foodandwine, delish, thespruceeats]
 
 RAIZ = os.path.dirname(os.path.abspath(__file__))
 SAIDA = os.path.join(RAIZ, "data", "receitas.json")
