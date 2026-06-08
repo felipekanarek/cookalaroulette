@@ -34,15 +34,15 @@ Validação de aceite por site: `python3 -c "from scrapers import <m>; print(len
 
 ### Lote 2 — Food blogs EUA
 
-- [ ] T011 [P] [US1] `scrapers/ciaosamin.py` — Samin Nosrat (ciaosamin.com, US/IR)
-- [ ] T012 [P] [US1] `scrapers/sallysbaking.py` — Sally McKenney (sallysbakingaddiction.com, US)
-- [ ] T013 [P] [US1] `scrapers/minimalistbaker.py` — Dana Shulman (minimalistbaker.com, US)
-- [ ] T014 [P] [US1] `scrapers/pinchofyum.py` — Lindsay Ostrom (pinchofyum.com, US)
-- [ ] T015 [P] [US1] `scrapers/loveandlemons.py` — Jeanine Donofrio (loveandlemons.com, US)
-- [ ] T016 [P] [US1] `scrapers/downshiftology.py` — Lisa Bryan (downshiftology.com, US)
-- [ ] T017 [P] [US1] `scrapers/gimmesomeoven.py` — Ali Martin (gimmesomeoven.com, US)
-- [ ] T018 [P] [US1] `scrapers/joythebaker.py` — Joy Wilson (joythebaker.com, US)
-- [ ] T019 [P] [US1] `scrapers/themodernproper.py` — The Modern Proper (themodernproper.com, US)
+- [X] T011 [P] [US1] `scrapers/ciaosamin.py` — Samin Nosrat (ciaosamin.com, US/IR)
+- [X] T012 [P] [US1] `scrapers/sallysbaking.py` — Sally McKenney (sallysbakingaddiction.com, US)
+- [X] T013 [P] [US1] `scrapers/minimalistbaker.py` — Dana Shulman (minimalistbaker.com, US)
+- [X] T014 [P] [US1] `scrapers/pinchofyum.py` — Lindsay Ostrom (pinchofyum.com, US)
+- [X] T015 [P] [US1] `scrapers/loveandlemons.py` — Jeanine Donofrio (loveandlemons.com, US)
+- [X] T016 [P] [US1] `scrapers/downshiftology.py` — Lisa Bryan (downshiftology.com, US)
+- [X] T017 [P] [US1] `scrapers/gimmesomeoven.py` — Ali Martin (gimmesomeoven.com, US)
+- [X] T018 [P] [US1] `scrapers/joythebaker.py` — Joy Wilson (joythebaker.com, US)
+- [X] T019 [P] [US1] `scrapers/themodernproper.py` — The Modern Proper (themodernproper.com, US)
 - [ ] T020 [US1] Registrar T011–T019 em `orquestrador.py` e integrar via `--site` (limite 1000); atualizar `cobertura.md`
 
 ### Lote 3 — Ásia
