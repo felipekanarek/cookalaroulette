@@ -57,11 +57,11 @@ em paralelo entre si (são serviços diferentes).
 ### Bloco C — primeiro deploy
 
 - [X] T016 [US2] Commit dos blocos A + B (mensagem: "feat(seo): meta SEO em EN + JSON-LD + GoatCounter + robots/sitemap"); push para origin/006-dominio-seo
-- [ ] T017 [US2] Merge da branch `006-dominio-seo` em `main` (`git checkout main && git merge --no-ff 006-dominio-seo`) e `git push origin main` — GitHub Pages republica em ~30s
+- [X] T017 [US2] Merge da branch `006-dominio-seo` em `main` (`git checkout main && git merge --no-ff 006-dominio-seo`) e `git push origin main` — GitHub Pages republica em ~30s
 
 ### Bloco D — validações pós-deploy
 
-- [ ] T018 [US2] Aguardar Pages republicar e rodar validações automáticas: `curl -s https://cookalaroulette.com | grep -E '<title>|canonical|google-site-verification|application/ld\+json|goatcounter'` (todas devem aparecer); `curl -s https://cookalaroulette.com/robots.txt` (3 linhas); `curl -s https://cookalaroulette.com/sitemap.xml` (XML válido); `curl -sI https://cookalaroulette.com/assets/og-image.png` (200)
+- [X] T018 [US2] Aguardar Pages republicar e rodar validações automáticas: `curl -s https://cookalaroulette.com | grep -E '<title>|canonical|google-site-verification|application/ld\+json|goatcounter'` (todas devem aparecer); `curl -s https://cookalaroulette.com/robots.txt` (3 linhas); `curl -s https://cookalaroulette.com/sitemap.xml` (XML válido); `curl -sI https://cookalaroulette.com/assets/og-image.png` (200)
 - [ ] T019 [US2] Validar JSON-LD em https://search.google.com/test/rich-results com URL `https://cookalaroulette.com/` — esperado: `WebSite` detectado, sem erros
 - [ ] T020 [US2] Rodar Lighthouse SEO (https://pagespeed.web.dev/?url=https%3A%2F%2Fcookalaroulette.com%2F) e verificar score SEO ≥ 90 (SC-005); registrar no commit ou em `cobertura.md` se houver desvio
 - [ ] T021 [US2] Forçar re-scrape dos previews sociais: Facebook Debugger (https://developers.facebook.com/tools/debug/?q=https%3A%2F%2Fcookalaroulette.com%2F) → "Scrape Again"; Twitter Card Validator (https://cards-dev.twitter.com/validator) — esperar imagem 1200×630 + textos EN
@@ -82,14 +82,14 @@ em paralelo entre si (são serviços diferentes).
 **Goal**: validar que nada visível mudou na tela.
 **Independent Test**: comparação visual + DevTools.
 
-- [ ] T026 [US3] Abrir `https://cookalaroulette.com` em aba anônima: verificar visualmente que a tela é a mesma (texto-marca COOK / À LA / ROULETTE, laranja sobre off-white). Inspecionar `<body>` no DevTools → confirmar que NÃO existem elementos novos visíveis (sem banners, badges, widgets). Inspecionar Application → Cookies → confirmar **0 cookies** (SC-006).
+- [~] T026 [US3] Abrir `https://cookalaroulette.com` em aba anônima: verificar visualmente que a tela é a mesma (texto-marca COOK / À LA / ROULETTE, laranja sobre off-white). Inspecionar `<body>` no DevTools → confirmar que NÃO existem elementos novos visíveis (sem banners, badges, widgets). Inspecionar Application → Cookies → confirmar **0 cookies** (SC-006).
 
 ## Phase 6: Polish & Cross-Cutting
 
-- [ ] T027 [P] Atualizar `README.md`: trocar todas as referências de `felipekanarek.github.io/cookalaroulette` por `cookalaroulette.com`; adicionar marcador "Fase 6 ✅" na lista de fases; nota sobre o GoatCounter como exceção documentada
-- [ ] T028 [P] Atualizar metadados do repo: `gh repo edit felipekanarek/cookalaroulette --homepage https://cookalaroulette.com` (a descrição pode permanecer ou ganhar menção EN)
-- [ ] T029 [P] Atualizar memória do projeto (`~/.claude/projects/-Users-infoprice-cookAlaRoulette/memory/cookalaroulette-status.md`): registrar Fase 6 ✅ no ar em `cookalaroulette.com`, GoatCounter ativo
-- [ ] T030 Commit final ("docs(006): README + memória + homepage do repo atualizados") + push; verificar que `git status` está limpo e que `git log --oneline -5` mostra a Fase 6 fechada
+- [X] T027 [P] Atualizar `README.md`: trocar todas as referências de `felipekanarek.github.io/cookalaroulette` por `cookalaroulette.com`; adicionar marcador "Fase 6 ✅" na lista de fases; nota sobre o GoatCounter como exceção documentada
+- [X] T028 [P] Atualizar metadados do repo: `gh repo edit felipekanarek/cookalaroulette --homepage https://cookalaroulette.com` (a descrição pode permanecer ou ganhar menção EN)
+- [X] T029 [P] Atualizar memória do projeto (`~/.claude/projects/-Users-infoprice-cookAlaRoulette/memory/cookalaroulette-status.md`): registrar Fase 6 ✅ no ar em `cookalaroulette.com`, GoatCounter ativo
+- [X] T030 Commit final ("docs(006): README + memória + homepage do repo atualizados") + push; verificar que `git status` está limpo e que `git log --oneline -5` mostra a Fase 6 fechada
 - [ ] T031 Validar todos os SCs da spec ao vivo (SC-001 a SC-008) e registrar resultados; SC-003/SC-004/SC-007 têm janelas de 30/60 dias — anotar a data inicial pra revisitar
 
 ## Dependencies & Execution

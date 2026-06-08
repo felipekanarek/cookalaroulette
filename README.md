@@ -92,6 +92,7 @@ BRIEFING.md                                      ← briefing original
 - **Fase 3 — Cobertura** ✅ ~30 Chefs de 25+ países (5 técnicas de coleta)
 - **Fase 4 — Refinamento** ✅ acessibilidade WCAG AA, responsivo, roleta de fontes, OG/social, LICENSE, **deploy no ar**
 - **Fase 5 — Expansão (Lista 2)** ✅ +52 chefs/marcas (food blogs, editoriais, coquetéis): **~93 mil receitas / 83 chefs**; modo cirúrgico `--site` no orquestrador
+- **Fase 6 — Domínio + SEO** ✅ no ar em **https://cookalaroulette.com** (HTTPS via GitHub Pages); SEO em EN (`<title>`, `<meta description>`, `<link rel="canonical">`, JSON-LD Schema.org `WebSite`, OG/Twitter), `robots.txt` + `sitemap.xml`, **GoatCounter** como analytics privacy-friendly (sem cookies, evento custom `roleta-clique`), Search Console verificado
 
 Princípios em [`.specify/memory/constitution.md`](.specify/memory/constitution.md).
 Cada fase tem spec/plan/tasks em [`specs/`](specs/).
