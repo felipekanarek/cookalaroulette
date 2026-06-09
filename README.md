@@ -2,6 +2,8 @@
 
 > O universo decide o que você vai cozinhar hoje.
 
+**🌐 No ar em [cookalaroulette.com](https://cookalaroulette.com)** — clique e seja redirecionado para uma receita aleatória de chefs do mundo todo.
+
 Um web app de página única que **sorteia uma receita aleatória** de um Chef curado e
 **redireciona** para o site original. Sem login, sem fricção, sem conteúdo hospedado — a
 aleatoriedade é o produto.
