@@ -47,7 +47,16 @@
   }
   </script>
 
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <!-- Favicons (Fase 6) — múltiplos formatos e tamanhos com paths absolutos para que o
+       Google escolha o "C" laranja da marca em vez do globo genérico no snippet de busca.
+       Gerados por scripts/gerar_favicons.py a partir de assets/favicon.svg. -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="16x16"   href="/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32"   href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48"   href="/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+  <link rel="apple-touch-icon"      sizes="180x180" href="/apple-touch-icon.png">
   <link rel="stylesheet" href="style.css">
   <!-- a fonte é escolhida aleatoriamente do Google Fonts e injetada por app.js a cada visita -->
 
